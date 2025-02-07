@@ -35,7 +35,6 @@ namespace Visitor_Management_System
 
         private void gunaLogin_btn_Click(object sender, EventArgs e)
         {
-            //testing 
             MySqlConnection mysql = new MySqlConnection(mySqlCon);
 
             string username = txt_username.Text.Trim();
