@@ -37,13 +37,13 @@
             this.dataGrid_ReportTable = new Guna.UI2.WinForms.Guna2DataGridView();
             this.txt_reportSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.comboBox_Department = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.DatePicker_reportDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.downloadReport_CSV_btn = new Guna.UI2.WinForms.Guna2Button();
             this.downloadReport_PDF_btn = new Guna.UI2.WinForms.Guna2Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.dateFilter_comboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_ReportTable)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -120,7 +120,7 @@
             this.txt_reportSearch.BorderColor = System.Drawing.Color.Black;
             this.txt_reportSearch.BorderRadius = 12;
             this.txt_reportSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_reportSearch.DefaultText = "Search....";
+            this.txt_reportSearch.DefaultText = "";
             this.txt_reportSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txt_reportSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txt_reportSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -152,29 +152,11 @@
             this.comboBox_Department.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_Department.ForeColor = System.Drawing.Color.Black;
             this.comboBox_Department.ItemHeight = 30;
-            this.comboBox_Department.Location = new System.Drawing.Point(807, 284);
+            this.comboBox_Department.Location = new System.Drawing.Point(826, 284);
             this.comboBox_Department.Name = "comboBox_Department";
             this.comboBox_Department.Size = new System.Drawing.Size(212, 36);
             this.comboBox_Department.TabIndex = 7;
-            this.comboBox_Department.Visible = false;
             this.comboBox_Department.SelectedIndexChanged += new System.EventHandler(this.comboBox_Department_SelectedIndexChanged);
-            // 
-            // DatePicker_reportDate
-            // 
-            this.DatePicker_reportDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DatePicker_reportDate.BackColor = System.Drawing.Color.White;
-            this.DatePicker_reportDate.Checked = true;
-            this.DatePicker_reportDate.FillColor = System.Drawing.Color.White;
-            this.DatePicker_reportDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DatePicker_reportDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DatePicker_reportDate.Location = new System.Drawing.Point(1025, 284);
-            this.DatePicker_reportDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.DatePicker_reportDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.DatePicker_reportDate.Name = "DatePicker_reportDate";
-            this.DatePicker_reportDate.Size = new System.Drawing.Size(200, 36);
-            this.DatePicker_reportDate.TabIndex = 8;
-            this.DatePicker_reportDate.Value = new System.DateTime(2025, 1, 22, 13, 0, 35, 774);
-            this.DatePicker_reportDate.Visible = false;
             // 
             // downloadReport_CSV_btn
             // 
@@ -190,13 +172,11 @@
             this.downloadReport_CSV_btn.Font = new System.Drawing.Font("Times New Roman", 18F);
             this.downloadReport_CSV_btn.ForeColor = System.Drawing.Color.White;
             this.downloadReport_CSV_btn.Image = ((System.Drawing.Image)(resources.GetObject("downloadReport_CSV_btn.Image")));
-            this.downloadReport_CSV_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.downloadReport_CSV_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.downloadReport_CSV_btn.Location = new System.Drawing.Point(839, 175);
+            this.downloadReport_CSV_btn.ImageSize = new System.Drawing.Size(30, 30);
+            this.downloadReport_CSV_btn.Location = new System.Drawing.Point(1031, 175);
             this.downloadReport_CSV_btn.Name = "downloadReport_CSV_btn";
-            this.downloadReport_CSV_btn.Size = new System.Drawing.Size(180, 45);
+            this.downloadReport_CSV_btn.Size = new System.Drawing.Size(80, 60);
             this.downloadReport_CSV_btn.TabIndex = 9;
-            this.downloadReport_CSV_btn.Text = ".CSV";
             this.downloadReport_CSV_btn.Click += new System.EventHandler(this.downloadReport_CSV_btn_Click);
             // 
             // downloadReport_PDF_btn
@@ -213,13 +193,11 @@
             this.downloadReport_PDF_btn.Font = new System.Drawing.Font("Times New Roman", 18F);
             this.downloadReport_PDF_btn.ForeColor = System.Drawing.Color.White;
             this.downloadReport_PDF_btn.Image = ((System.Drawing.Image)(resources.GetObject("downloadReport_PDF_btn.Image")));
-            this.downloadReport_PDF_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.downloadReport_PDF_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.downloadReport_PDF_btn.Location = new System.Drawing.Point(1045, 175);
+            this.downloadReport_PDF_btn.ImageSize = new System.Drawing.Size(30, 30);
+            this.downloadReport_PDF_btn.Location = new System.Drawing.Point(1133, 175);
             this.downloadReport_PDF_btn.Name = "downloadReport_PDF_btn";
-            this.downloadReport_PDF_btn.Size = new System.Drawing.Size(180, 45);
+            this.downloadReport_PDF_btn.Size = new System.Drawing.Size(80, 60);
             this.downloadReport_PDF_btn.TabIndex = 10;
-            this.downloadReport_PDF_btn.Text = ".PDF";
             this.downloadReport_PDF_btn.Click += new System.EventHandler(this.downloadReport_PDF_btn_Click);
             // 
             // label3
@@ -227,24 +205,22 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(803, 257);
+            this.label3.Location = new System.Drawing.Point(822, 257);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 24);
             this.label3.TabIndex = 11;
             this.label3.Text = "Department";
-            this.label3.Visible = false;
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1021, 257);
+            this.label4.Location = new System.Drawing.Point(1044, 257);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 24);
+            this.label4.Size = new System.Drawing.Size(48, 24);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Date";
-            this.label4.Visible = false;
+            this.label4.Text = "Filter";
             // 
             // kryptonPalette1
             // 
@@ -261,12 +237,12 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.dateFilter_comboBox);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.downloadReport_PDF_btn);
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.downloadReport_CSV_btn);
             this.guna2Panel1.Controls.Add(this.txt_reportSearch);
-            this.guna2Panel1.Controls.Add(this.DatePicker_reportDate);
             this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.Controls.Add(this.dataGrid_ReportTable);
             this.guna2Panel1.Controls.Add(this.comboBox_Department);
@@ -275,6 +251,23 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1244, 654);
             this.guna2Panel1.TabIndex = 13;
+            // 
+            // dateFilter_comboBox
+            // 
+            this.dateFilter_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateFilter_comboBox.BackColor = System.Drawing.Color.Transparent;
+            this.dateFilter_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.dateFilter_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dateFilter_comboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.dateFilter_comboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.dateFilter_comboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFilter_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.dateFilter_comboBox.ItemHeight = 30;
+            this.dateFilter_comboBox.Location = new System.Drawing.Point(1045, 284);
+            this.dateFilter_comboBox.Name = "dateFilter_comboBox";
+            this.dateFilter_comboBox.Size = new System.Drawing.Size(180, 36);
+            this.dateFilter_comboBox.TabIndex = 13;
+            this.dateFilter_comboBox.SelectedIndexChanged += new System.EventHandler(this.dateFilter_comboBox_SelectedIndexChanged);
             // 
             // Reports
             // 
@@ -307,12 +300,12 @@
         private Guna.UI2.WinForms.Guna2DataGridView dataGrid_ReportTable;
         private Guna.UI2.WinForms.Guna2TextBox txt_reportSearch;
         private Guna.UI2.WinForms.Guna2ComboBox comboBox_Department;
-        private Guna.UI2.WinForms.Guna2DateTimePicker DatePicker_reportDate;
         private Guna.UI2.WinForms.Guna2Button downloadReport_CSV_btn;
         private Guna.UI2.WinForms.Guna2Button downloadReport_PDF_btn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2ComboBox dateFilter_comboBox;
     }
 }

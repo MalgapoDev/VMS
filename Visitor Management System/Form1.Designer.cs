@@ -143,7 +143,7 @@
             this.label3.Location = new System.Drawing.Point(141, 80);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(289, 38);
+            this.label3.Size = new System.Drawing.Size(283, 37);
             this.label3.TabIndex = 9;
             this.label3.Text = "Receptionist Login";
             // 
@@ -255,7 +255,7 @@
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Visitor Management System";
+            this.Text = "     Visitor Management System";
             this.TextExtra = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

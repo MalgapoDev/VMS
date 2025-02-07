@@ -30,14 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueueList));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.txt_Search = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGrid_QueueTable = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.QueueList_Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbl_Date = new System.Windows.Forms.Label();
+            this.lbl_Time = new System.Windows.Forms.Label();
+            this.lbl_fullName = new System.Windows.Forms.Label();
+            this.lbl_buildingNo = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_QueueTable)).BeginInit();
             this.QueueList_Panel.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +65,7 @@
             this.txt_Search.BorderColor = System.Drawing.Color.Black;
             this.txt_Search.BorderRadius = 12;
             this.txt_Search.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_Search.DefaultText = "Search....";
+            this.txt_Search.DefaultText = "";
             this.txt_Search.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txt_Search.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txt_Search.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -83,31 +88,31 @@
             // 
             // dataGrid_QueueTable
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dataGrid_QueueTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dataGrid_QueueTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGrid_QueueTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGrid_QueueTable.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGrid_QueueTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid_QueueTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid_QueueTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGrid_QueueTable.ColumnHeadersHeight = 20;
             this.dataGrid_QueueTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dataGrid_QueueTable.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid_QueueTable.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid_QueueTable.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGrid_QueueTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGrid_QueueTable.Location = new System.Drawing.Point(17, 356);
             this.dataGrid_QueueTable.Name = "dataGrid_QueueTable";
@@ -142,7 +147,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 43);
+            this.label1.Location = new System.Drawing.Point(27, 217);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(244, 53);
             this.label1.TabIndex = 2;
@@ -152,6 +157,10 @@
             // 
             this.QueueList_Panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("QueueList_Panel.BackgroundImage")));
             this.QueueList_Panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.QueueList_Panel.Controls.Add(this.lbl_Date);
+            this.QueueList_Panel.Controls.Add(this.lbl_Time);
+            this.QueueList_Panel.Controls.Add(this.lbl_fullName);
+            this.QueueList_Panel.Controls.Add(this.lbl_buildingNo);
             this.QueueList_Panel.Controls.Add(this.label1);
             this.QueueList_Panel.Controls.Add(this.dataGrid_QueueTable);
             this.QueueList_Panel.Controls.Add(this.txt_Search);
@@ -161,6 +170,48 @@
             this.QueueList_Panel.Name = "QueueList_Panel";
             this.QueueList_Panel.Size = new System.Drawing.Size(1137, 1033);
             this.QueueList_Panel.TabIndex = 4;
+            // 
+            // lbl_Date
+            // 
+            this.lbl_Date.AutoSize = true;
+            this.lbl_Date.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Date.Location = new System.Drawing.Point(234, 9);
+            this.lbl_Date.Name = "lbl_Date";
+            this.lbl_Date.Size = new System.Drawing.Size(52, 27);
+            this.lbl_Date.TabIndex = 3;
+            this.lbl_Date.Text = "Date";
+            // 
+            // lbl_Time
+            // 
+            this.lbl_Time.AutoSize = true;
+            this.lbl_Time.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Time.Location = new System.Drawing.Point(31, 9);
+            this.lbl_Time.Name = "lbl_Time";
+            this.lbl_Time.Size = new System.Drawing.Size(56, 27);
+            this.lbl_Time.TabIndex = 3;
+            this.lbl_Time.Text = "Time";
+            // 
+            // lbl_fullName
+            // 
+            this.lbl_fullName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_fullName.AutoSize = true;
+            this.lbl_fullName.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_fullName.Location = new System.Drawing.Point(986, 9);
+            this.lbl_fullName.Name = "lbl_fullName";
+            this.lbl_fullName.Size = new System.Drawing.Size(102, 27);
+            this.lbl_fullName.TabIndex = 2;
+            this.lbl_fullName.Text = "Full Name";
+            // 
+            // lbl_buildingNo
+            // 
+            this.lbl_buildingNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_buildingNo.AutoSize = true;
+            this.lbl_buildingNo.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_buildingNo.Location = new System.Drawing.Point(504, 9);
+            this.lbl_buildingNo.Name = "lbl_buildingNo";
+            this.lbl_buildingNo.Size = new System.Drawing.Size(138, 27);
+            this.lbl_buildingNo.TabIndex = 3;
+            this.lbl_buildingNo.Text = "buiding Name";
             // 
             // QueueList
             // 
@@ -181,6 +232,7 @@
             this.Text = "Visitor Management System";
             this.TextExtra = "Queue List";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.QueueList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_QueueTable)).EndInit();
             this.QueueList_Panel.ResumeLayout(false);
             this.QueueList_Panel.PerformLayout();
@@ -194,5 +246,10 @@
         private Guna.UI2.WinForms.Guna2DataGridView dataGrid_QueueTable;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Panel QueueList_Panel;
+        private System.Windows.Forms.Label lbl_Time;
+        private System.Windows.Forms.Label lbl_Date;
+        private System.Windows.Forms.Label lbl_buildingNo;
+        private System.Windows.Forms.Label lbl_fullName;
+        private System.Windows.Forms.Timer timer1;
     }
 }

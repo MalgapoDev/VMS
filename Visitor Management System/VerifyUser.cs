@@ -37,16 +37,24 @@ namespace Visitor_Management_System
 
         private void confirmPinCode_btn_Click(object sender, EventArgs e)
         {
-            int pincode = Convert.ToInt32(txt_PinCode.Text);
+            if (string.IsNullOrWhiteSpace(txt_PinCode.Text))
+            {
+                MessageBox.Show("Please enter a pin code.");
+                loadForm(new AddVisitor());
+                return;
+            }
 
+            int pincode;
+            if (!int.TryParse(txt_PinCode.Text, out pincode))
+            {
+                MessageBox.Show("Invalid pin code. Please enter numbers only.");
+                txt_PinCode.Clear();
+                return;
+            }
             if (pincode != IdLength && pincode != ValidPin)
             {
-                MessageBox.Show("Pin code must be matched.");
+                MessageBox.Show("Pin code must match.");
                 txt_PinCode.Clear();
-            }
-            else if(string.IsNullOrEmpty(Convert.ToString(pincode)))
-            {
-                MessageBox.Show("Please enter pin code");
             }
             else
             {
@@ -54,6 +62,7 @@ namespace Visitor_Management_System
 
                 loadForm(new VerifiedUser());
             }
+
         }
 
         private void txt_PinCode_KeyPress(object sender, KeyPressEventArgs e)

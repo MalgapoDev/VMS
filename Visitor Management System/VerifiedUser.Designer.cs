@@ -32,9 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerifiedUser));
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.Cancel_btn = new Guna.UI2.WinForms.Guna2Button();
+            this.comboBox_ValidID_Verified = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.txt_FloorVerified = new Guna.UI2.WinForms.Guna2TextBox();
             this.ConfirmVisitor_btn = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox_verifiedUserPfp = new Guna.UI2.WinForms.Guna2PictureBox();
             this.txt_CardNumberVerified = new Guna.UI2.WinForms.Guna2TextBox();
@@ -50,7 +52,6 @@
             this.txt_RoomVerified = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_ContactPersonVerified = new Guna.UI2.WinForms.Guna2TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -72,8 +73,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.Confirmation_panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.comboBox_ValidID_Verified = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_verifiedUserPfp)).BeginInit();
             this.Confirmation_panel.SuspendLayout();
@@ -96,11 +95,11 @@
             this.guna2CustomGradientPanel1.BorderColor = System.Drawing.Color.Black;
             this.guna2CustomGradientPanel1.BorderRadius = 20;
             this.guna2CustomGradientPanel1.BorderThickness = 1;
+            this.guna2CustomGradientPanel1.Controls.Add(this.Cancel_btn);
             this.guna2CustomGradientPanel1.Controls.Add(this.comboBox_ValidID_Verified);
             this.guna2CustomGradientPanel1.Controls.Add(this.label21);
             this.guna2CustomGradientPanel1.Controls.Add(this.label22);
             this.guna2CustomGradientPanel1.Controls.Add(this.label20);
-            this.guna2CustomGradientPanel1.Controls.Add(this.txt_FloorVerified);
             this.guna2CustomGradientPanel1.Controls.Add(this.ConfirmVisitor_btn);
             this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox_verifiedUserPfp);
             this.guna2CustomGradientPanel1.Controls.Add(this.txt_CardNumberVerified);
@@ -116,7 +115,6 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.txt_RoomVerified);
             this.guna2CustomGradientPanel1.Controls.Add(this.txt_ContactPersonVerified);
             this.guna2CustomGradientPanel1.Controls.Add(this.label14);
-            this.guna2CustomGradientPanel1.Controls.Add(this.label13);
             this.guna2CustomGradientPanel1.Controls.Add(this.label12);
             this.guna2CustomGradientPanel1.Controls.Add(this.label11);
             this.guna2CustomGradientPanel1.Controls.Add(this.label10);
@@ -140,6 +138,56 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1069, 837);
             this.guna2CustomGradientPanel1.TabIndex = 4;
+            // 
+            // Cancel_btn
+            // 
+            this.Cancel_btn.BorderRadius = 12;
+            this.Cancel_btn.BorderThickness = 1;
+            this.Cancel_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Cancel_btn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Cancel_btn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Cancel_btn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Cancel_btn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Cancel_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Cancel_btn.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancel_btn.ForeColor = System.Drawing.Color.White;
+            this.Cancel_btn.Location = new System.Drawing.Point(690, 778);
+            this.Cancel_btn.Name = "Cancel_btn";
+            this.Cancel_btn.Size = new System.Drawing.Size(158, 42);
+            this.Cancel_btn.TabIndex = 42;
+            this.Cancel_btn.Text = "Cancel";
+            this.Cancel_btn.Click += new System.EventHandler(this.Cancel_btn_Click);
+            // 
+            // comboBox_ValidID_Verified
+            // 
+            this.comboBox_ValidID_Verified.BackColor = System.Drawing.Color.Transparent;
+            this.comboBox_ValidID_Verified.BorderColor = System.Drawing.Color.Black;
+            this.comboBox_ValidID_Verified.BorderRadius = 10;
+            this.comboBox_ValidID_Verified.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBox_ValidID_Verified.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_ValidID_Verified.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBox_ValidID_Verified.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBox_ValidID_Verified.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_ValidID_Verified.ForeColor = System.Drawing.Color.Black;
+            this.comboBox_ValidID_Verified.ItemHeight = 30;
+            this.comboBox_ValidID_Verified.Location = new System.Drawing.Point(32, 495);
+            this.comboBox_ValidID_Verified.Name = "comboBox_ValidID_Verified";
+            this.comboBox_ValidID_Verified.Size = new System.Drawing.Size(289, 36);
+            this.comboBox_ValidID_Verified.TabIndex = 41;
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(32, 473);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(64, 22);
+            this.label21.TabIndex = 40;
+            this.label21.Text = "Valid ID";
             // 
             // label22
             // 
@@ -167,29 +215,6 @@
             this.label20.Text = "_________________________________________________________________________________" +
     "______________________________________________";
             // 
-            // txt_FloorVerified
-            // 
-            this.txt_FloorVerified.BorderColor = System.Drawing.Color.Black;
-            this.txt_FloorVerified.BorderRadius = 10;
-            this.txt_FloorVerified.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_FloorVerified.DefaultText = "";
-            this.txt_FloorVerified.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_FloorVerified.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_FloorVerified.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_FloorVerified.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_FloorVerified.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_FloorVerified.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_FloorVerified.ForeColor = System.Drawing.Color.Black;
-            this.txt_FloorVerified.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_FloorVerified.Location = new System.Drawing.Point(463, 415);
-            this.txt_FloorVerified.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txt_FloorVerified.Name = "txt_FloorVerified";
-            this.txt_FloorVerified.PasswordChar = '\0';
-            this.txt_FloorVerified.PlaceholderText = "";
-            this.txt_FloorVerified.SelectedText = "";
-            this.txt_FloorVerified.Size = new System.Drawing.Size(120, 37);
-            this.txt_FloorVerified.TabIndex = 36;
-            // 
             // ConfirmVisitor_btn
             // 
             this.ConfirmVisitor_btn.BorderRadius = 12;
@@ -202,7 +227,7 @@
             this.ConfirmVisitor_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.ConfirmVisitor_btn.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConfirmVisitor_btn.ForeColor = System.Drawing.Color.White;
-            this.ConfirmVisitor_btn.Location = new System.Drawing.Point(847, 778);
+            this.ConfirmVisitor_btn.Location = new System.Drawing.Point(873, 778);
             this.ConfirmVisitor_btn.Name = "ConfirmVisitor_btn";
             this.ConfirmVisitor_btn.Size = new System.Drawing.Size(158, 42);
             this.ConfirmVisitor_btn.TabIndex = 35;
@@ -375,7 +400,7 @@
             this.comboBox_DepartmentVerified.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_DepartmentVerified.ForeColor = System.Drawing.Color.Black;
             this.comboBox_DepartmentVerified.ItemHeight = 30;
-            this.comboBox_DepartmentVerified.Location = new System.Drawing.Point(31, 498);
+            this.comboBox_DepartmentVerified.Location = new System.Drawing.Point(329, 416);
             this.comboBox_DepartmentVerified.Name = "comboBox_DepartmentVerified";
             this.comboBox_DepartmentVerified.Size = new System.Drawing.Size(291, 36);
             this.comboBox_DepartmentVerified.TabIndex = 24;
@@ -388,7 +413,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(27, 473);
+            this.label15.Location = new System.Drawing.Point(335, 388);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(91, 22);
             this.label15.TabIndex = 23;
@@ -408,7 +433,7 @@
             this.txt_RoomVerified.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_RoomVerified.ForeColor = System.Drawing.Color.Black;
             this.txt_RoomVerified.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_RoomVerified.Location = new System.Drawing.Point(330, 415);
+            this.txt_RoomVerified.Location = new System.Drawing.Point(627, 416);
             this.txt_RoomVerified.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txt_RoomVerified.Name = "txt_RoomVerified";
             this.txt_RoomVerified.PasswordChar = '\0';
@@ -449,25 +474,11 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(326, 387);
+            this.label14.Location = new System.Drawing.Point(625, 388);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(51, 22);
             this.label14.TabIndex = 19;
             this.label14.Text = "Room";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(459, 387);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(47, 22);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "Floor";
             // 
             // label12
             // 
@@ -807,37 +818,6 @@
             this.Confirmation_panel.Size = new System.Drawing.Size(1902, 1033);
             this.Confirmation_panel.TabIndex = 5;
             // 
-            // label21
-            // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(609, 387);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(64, 22);
-            this.label21.TabIndex = 40;
-            this.label21.Text = "Valid ID";
-            // 
-            // comboBox_ValidID_Verified
-            // 
-            this.comboBox_ValidID_Verified.BackColor = System.Drawing.Color.Transparent;
-            this.comboBox_ValidID_Verified.BorderColor = System.Drawing.Color.Black;
-            this.comboBox_ValidID_Verified.BorderRadius = 10;
-            this.comboBox_ValidID_Verified.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBox_ValidID_Verified.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_ValidID_Verified.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBox_ValidID_Verified.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBox_ValidID_Verified.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_ValidID_Verified.ForeColor = System.Drawing.Color.Black;
-            this.comboBox_ValidID_Verified.ItemHeight = 30;
-            this.comboBox_ValidID_Verified.Location = new System.Drawing.Point(603, 416);
-            this.comboBox_ValidID_Verified.Name = "comboBox_ValidID_Verified";
-            this.comboBox_ValidID_Verified.Size = new System.Drawing.Size(216, 36);
-            this.comboBox_ValidID_Verified.TabIndex = 41;
-            // 
             // VerifiedUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -869,14 +849,12 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
-        private Guna.UI2.WinForms.Guna2TextBox txt_FloorVerified;
         private Guna.UI2.WinForms.Guna2Button ConfirmVisitor_btn;
         private Guna.UI2.WinForms.Guna2PictureBox pictureBox_verifiedUserPfp;
         private Guna.UI2.WinForms.Guna2TextBox txt_CardNumberVerified;
         private System.Windows.Forms.Label label19;
         private Guna.UI2.WinForms.Guna2TextBox txt_PurposeofVisitVerified;
         private System.Windows.Forms.Label label18;
-        private Guna.UI2.WinForms.Guna2DateTimePicker TimePicker_TimeofVisitVerified;
         private Guna.UI2.WinForms.Guna2DateTimePicker DatePicker_DateofVisitVerified;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
@@ -885,7 +863,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txt_RoomVerified;
         private Guna.UI2.WinForms.Guna2TextBox txt_ContactPersonVerified;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -911,5 +888,7 @@
         private Guna.UI2.WinForms.Guna2Panel Confirmation_panel;
         private Guna.UI2.WinForms.Guna2ComboBox comboBox_ValidID_Verified;
         private System.Windows.Forms.Label label21;
+        private Guna.UI2.WinForms.Guna2DateTimePicker TimePicker_TimeofVisitVerified;
+        private Guna.UI2.WinForms.Guna2Button Cancel_btn;
     }
 }

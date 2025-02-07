@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="kryptonPalette1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="txt_SearchHistory.IconRight" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="txt_historySearch.IconRight" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAktJREFUaEPtmMtOVEEQhn/ciC8hGMEnUCDx9gCIbhXhAQgrL0/hhS0rXQkmor6D
@@ -134,29 +137,6 @@
         F+R3/vpjX8uWAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="downloadHistory_CSV_btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAN1JREFUaEPt10EKwjAQheHWc9pzuK2uvIErvaFneBLNaBgmwYXJjOV9UFASZf7S
-        op0mIqJNAjAD2Odj1uvhAVjwsej18ACsRcCq18NjgDcGeGOANwZ4Y4A3BnhjwAith5ZWQOtzQ6mHliuA
-        XbFmBqQ9ea/we9hRAck7wgowhk9cA6yBnhE6oLVXf+9Q+Xq+qMFuAE7F+2Nlj+/wonJ275XXif+Z1yoR
-        lnjDiy8i4g4vGhHxhxdGxP8ML8L82hLRS3FTHjoffW56459nT7//h7qFALmEzp2PPpcQEVEXD1u6cWkZ
-        55OkAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="downloadHistory_PDF_btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAN1JREFUaEPt10EKwjAQheHWc9pzuK2uvIErvaFneBLNaBgmwYXJjOV9UFASZf7S
-        op0mIqJNAjAD2Odj1uvhAVjwsej18ACsRcCq18NjgDcGeGOANwZ4Y4A3BnhjwAith5ZWQOtzQ6mHliuA
-        XbFmBqQ9ea/we9hRAck7wgowhk9cA6yBnhE6oLVXf+9Q+Xq+qMFuAE7F+2Nlj+/wonJ275XXif+Z1yoR
-        lnjDiy8i4g4vGhHxhxdGxP8ML8L82hLRS3FTHjoffW56459nT7//h7qFALmEzp2PPpcQEVEXD1u6cWkZ
-        55OkAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="kryptonPalette1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAACAAAAASACAYAAABrt62cAAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7M

@@ -14,24 +14,28 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using Guna.UI2.WinForms.Suite;
 using ComponentFactory.Krypton.Toolkit;
+using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
+using System.Drawing.Imaging;
 
 
 
 namespace Visitor_Management_System
 {
+
     public partial class AddVisitor : KryptonForm
     {
+        private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
 
+        
         public AddVisitor()
         {
             InitializeComponent();
 
             TimePicker_TimeofVisit.Format = DateTimePickerFormat.Custom;
-            TimePicker_TimeofVisit.CustomFormat = "hh:mm tt"; 
+            TimePicker_TimeofVisit.CustomFormat = "hh:mm tt";
             TimePicker_TimeofVisit.Value = DateTime.Now;
         }
-        FilterInfoCollection videoDevices;
-        VideoCaptureDevice videoSource;
 
         private void loadForm(object KryptonForm)
         {
@@ -51,15 +55,7 @@ namespace Visitor_Management_System
             TimePicker_TimeofVisit.Format = DateTimePickerFormat.Time;
             TimePicker_TimeofVisit.ShowUpDown = true;
 
-            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo filterInfo in videoDevices)
-            {
-                comboBox_selectCamera.Items.Add(filterInfo.Name);
-                comboBox_selectCamera.SelectedIndex = 0;
-                videoSource = new VideoCaptureDevice();
-            }
-
-            string[] suffix = { "Jr", "Sr", "II", "III" };
+            string[] suffix = { "N/A", "Jr", "Sr", "II", "III", "IV" };
 
             foreach (string sfx in suffix)
             {
@@ -90,7 +86,7 @@ namespace Visitor_Management_System
 
             TimePicker_TimeofVisit.Format = DateTimePickerFormat.Custom;
             TimePicker_TimeofVisit.CustomFormat = "hh:mm tt";
-            TimePicker_TimeofVisit.Value = DateTime.Now;
+            TimePicker_TimeofVisit.Text = DateTime.Now.ToString("hh:mm tt");
             TimePicker_TimeofVisit.ShowUpDown = true;
 
         }
@@ -98,11 +94,13 @@ namespace Visitor_Management_System
         private void EnterVisitCode_btn_Click(object sender, EventArgs e)
         {
             loadForm(new VerifyUser());
+
             modal_panel.Visible = true;
         }
 
         private void AddVisitor_btn_Click(object sender, EventArgs e)
         {
+
             string firstName = txt_firstname.Text.Trim();
             string lastName = txt_lastname.Text.Trim();
             string middleInitial = txt_middleInital.Text.Trim();
@@ -111,17 +109,17 @@ namespace Visitor_Management_System
             string Address = txt_Address.Text.Trim();
             string ContactPerson = txt_ContactPerson.Text.Trim();
             string Room = txt_Room.Text.Trim();
-            string Floor = txt_Floor.Text.Trim();
             string Purpose = txt_PurposeofVisit.Text.Trim();
             string CardNumber = txt_CardNumber.Text.Trim();
+            string IdPresented = comboBox_ValidID.Text.Trim();
+            string department = comboBox_Department.Text.Trim();
 
             DateTime timeVisit = TimePicker_TimeofVisit.Value;
             DateTime dateofBirth = datePicker_DateofBirth.Value;
             DateTime dateVisit = DatePicker_DateofVisit.Value;
 
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(middleInitial) || string.IsNullOrEmpty(Email)
-                || string.IsNullOrEmpty(Address) || string.IsNullOrEmpty(ContactPerson) || string.IsNullOrEmpty(Room) || string.IsNullOrEmpty(Floor)
-                || string.IsNullOrEmpty(Purpose) || string.IsNullOrEmpty(CardNumber))
+                || string.IsNullOrEmpty(Address) || string.IsNullOrEmpty(ContactPerson) || string.IsNullOrEmpty(Room) || string.IsNullOrEmpty(Purpose) || string.IsNullOrEmpty(CardNumber))
             {
                 MessageBox.Show("Please fill the visitor credentials", "Add Visitor Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -140,63 +138,81 @@ namespace Visitor_Management_System
             {
                 MessageBox.Show("Contact Number must be numeric.", "Add Visitor Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            else if (dateVisit < DateTime.Now)
-            {
-                MessageBox.Show("Please select a future date.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-            else if (timeVisit < DateTime.Now)
-            {
-                MessageBox.Show("Please select a future time", "Invalid Time", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
             else
             {
-                AddUserPrompt userprompt = new AddUserPrompt();
-                userprompt.ShowDialog();
+                MySqlConnection mysql = new MySqlConnection(mySqlCon);
+
+                try
+                {
+                    mysql.Open();
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO addvisitor (FirstName, LastName, MiddleInitial, Suffix, Email, ContactNumber, DateofBirth, Address, VisitorImage, ContactPerson, IDPresented, Room, Department, Date, TimeIn, Purpose, CardNumber) " +
+                    "VALUES (@FirstName, @LastName, @MiddleInitial, @Suffix, @Email, @ContactNumber, @DateofBirth, @Address, @VisitorImage, @ContactPerson, @IDPresented, @Room, @Department, @Date, @TimeIn, @Purpose, @CardNumber)", mysql);
+
+                    cmd.Parameters.AddWithValue("@FirstName", firstName);
+                    cmd.Parameters.AddWithValue("@LastName", lastName);
+                    cmd.Parameters.AddWithValue("@MiddleInitial", middleInitial);
+                    cmd.Parameters.AddWithValue("@Suffix", comboBox_suffix.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Email", Email);
+                    cmd.Parameters.AddWithValue("@ContactNumber", ContactNum);
+                    cmd.Parameters.AddWithValue("@DateofBirth", dateofBirth);
+                    cmd.Parameters.AddWithValue("@Address", Address);
+
+                    if (pictureBox_userProfile.Image != null)
+                    {
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            Image resizedImage = new Bitmap(pictureBox_userProfile.Image, new Size(150, 150));
+                            resizedImage.Save(ms, ImageFormat.Jpeg);
+
+                            if (ms.Length < 65536) // Check if the image is within acceptable size
+                            {
+                                cmd.Parameters.AddWithValue("@VisitorImage", ms.ToArray());
+                            }
+                            else
+                            {
+                                MessageBox.Show("Image is too large. Please use a smaller image.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@VisitorImage", DBNull.Value);
+                    }
+
+                    cmd.Parameters.AddWithValue("@ContactPerson", ContactPerson);
+                    cmd.Parameters.AddWithValue("@IDPresented", IdPresented);
+                    cmd.Parameters.AddWithValue("@Room", Room);
+                    cmd.Parameters.AddWithValue("@Department", department);
+                    cmd.Parameters.AddWithValue("@Date", dateVisit);
+                    cmd.Parameters.AddWithValue("@TimeIn", timeVisit);
+                    cmd.Parameters.AddWithValue("@Purpose", Purpose);
+                    cmd.Parameters.AddWithValue("@CardNumber", CardNumber);
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Visitor added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    mysql.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Add Visitor Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                loadForm(new AddUserPrompt());
+                modal_panel.Visible = true;
+
             }
         }
 
         private void btn_startCamera_Click(object sender, EventArgs e)
         {
-            videoSource = new VideoCaptureDevice(videoDevices[comboBox_selectCamera.SelectedIndex].MonikerString);
-            videoSource.NewFrame += VideoCaptureDevice_NewFrame;
-            videoSource.Start();
-        }
-
-        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            pictureBox_CapturedImage.Image = (Bitmap)eventArgs.Frame.Clone();
-        }
-
-        private void Capture_btn_Click(object sender, EventArgs e)
-        {
-            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-            string fileName = $"CapturedImage_{DateTime.Now:yyyyMMdd}.jpg";
-            string savePath = Path.Combine(folderPath, fileName);
-
-            try
+            using (ModalCamera captureForm = new ModalCamera())
             {
-                pictureBox_CapturedImage.Image.Save(savePath);
-                pictureBox_userProfile.Image = new Bitmap(savePath);
-                MessageBox.Show($"Image saved to {savePath}", "Image Captured", MessageBoxButtons.OK);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            
-
-        }
-
-        private void btn_stopCamera_Click(object sender, EventArgs e)
-        {
-            if (videoSource != null && videoSource.IsRunning)
-            {
-                videoSource.Stop();
-                videoSource.NewFrame -= VideoCaptureDevice_NewFrame;
+                if (captureForm.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox_userProfile.Image = captureForm.CapturedImage;
+                }
             }
         }
     }

@@ -18,6 +18,9 @@ namespace Visitor_Management_System
         public VerifiedUser()
         {
             InitializeComponent();
+            TimePicker_TimeofVisitVerified.Format = DateTimePickerFormat.Custom;
+            TimePicker_TimeofVisitVerified.CustomFormat = "hh:mm tt";
+            TimePicker_TimeofVisitVerified.Value = DateTime.Now;
         }
         private void loadForm(object KryptonForm)
         {
@@ -49,6 +52,33 @@ namespace Visitor_Management_System
             datePicker_DateofBirthVerified.Enabled = false;
             comboBox_suffixVerified.Enabled = false;
             comboBox_ValidID_Verified.Enabled = false;
+
+            TimePicker_TimeofVisitVerified.Format = DateTimePickerFormat.Time;
+            TimePicker_TimeofVisitVerified.ShowUpDown = true;
+
+            string[] departments = { "Information Technology", "Accounting", "Engineering", "HR" };
+
+            foreach (string dept in departments)
+            {
+                comboBox_DepartmentVerified.Items.Add(dept);
+            }
+        }
+
+        private void Cancel_btn_Click(object sender, EventArgs e)
+        {
+            if (ShowConfirmationDialog("Are you sure you want to cancel?", "Confirmation"))
+            {
+                loadForm(new AddVisitor());
+            }
+            else
+            {
+                MessageBox.Show("Operation not canceled.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        private bool ShowConfirmationDialog(string message, string title)
+        {
+            DialogResult result = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return result == DialogResult.Yes;
         }
     }
 }

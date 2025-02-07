@@ -14,6 +14,8 @@ namespace Visitor_Management_System
 {
     public partial class MainForm : KryptonForm
     {
+        private KryptonForm cachedAddVisitorForm = null;
+
         public MainForm()
         {
             InitializeComponent();
@@ -29,23 +31,35 @@ namespace Visitor_Management_System
             pictureBox.Region = new Region(path);
         }
 
-        private void loadForm(object KryptonForm)
+        private void loadForm(KryptonForm newForm)
         {
             if (this.MainPanel.Controls.Count > 0)
-                this.MainPanel.Controls.RemoveAt(0);
-            KryptonForm f = KryptonForm as KryptonForm;
-            f.TopLevel = false;
-            f.Dock = DockStyle.Fill;
-            this.MainPanel.Controls.Add(f);
-            this.MainPanel.Tag = f;
-            f.Show();
+            {
+                KryptonForm currentForm = this.MainPanel.Controls[0] as KryptonForm;
+                if (currentForm == newForm)
+                    return; // Prevent reloading if it's the same form
 
+                this.MainPanel.Controls.RemoveAt(0);
+            }
+
+            MainPanel.SuspendLayout();
+
+            newForm.TopLevel = false;
+            newForm.Dock = DockStyle.Fill;
+            this.MainPanel.Controls.Add(newForm);
+            this.MainPanel.Tag = newForm;
+            newForm.Show();
+
+            MainPanel.ResumeLayout();
         }
 
         private void add_Visitor_btn_Click(object sender, EventArgs e)
         {
-            loadForm(new AddVisitor());
-
+            if (cachedAddVisitorForm == null || cachedAddVisitorForm.IsDisposed)
+            {
+                cachedAddVisitorForm = new AddVisitor();
+            }
+            loadForm(cachedAddVisitorForm);
             add_Visitor_btn.Cursor = Cursors.Hand;
         }
 
@@ -70,6 +84,7 @@ namespace Visitor_Management_System
         private void MainForm_Load(object sender, EventArgs e)
         {
             loadForm(new QueueList());
+            this.MinimizeBox = true;
         }
 
         private void Logout_btn_Click(object sender, EventArgs e)

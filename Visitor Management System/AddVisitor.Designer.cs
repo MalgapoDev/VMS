@@ -32,11 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddVisitor));
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.comboBox_ValidID = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.txt_Floor = new Guna.UI2.WinForms.Guna2TextBox();
             this.AddVisitor_btn = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox_userProfile = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btn_startCamera = new Guna.UI2.WinForms.Guna2Button();
             this.txt_CardNumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txt_PurposeofVisit = new Guna.UI2.WinForms.Guna2TextBox();
@@ -50,7 +52,6 @@
             this.txt_Room = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_ContactPerson = new Guna.UI2.WinForms.Guna2TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -71,20 +72,11 @@
             this.txt_firstname = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.modal_panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.pictureBox_CapturedImage = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.Capture_btn = new Guna.UI2.WinForms.Guna2Button();
-            this.label21 = new System.Windows.Forms.Label();
             this.EnterVisitCode_btn = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_stopCamera = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_startCamera = new Guna.UI2.WinForms.Guna2Button();
-            this.comboBox_selectCamera = new Guna.UI2.WinForms.Guna2ComboBox();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.AddVisitorScreen_panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.label23 = new System.Windows.Forms.Label();
-            this.comboBox_ValidID = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_userProfile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CapturedImage)).BeginInit();
             this.AddVisitorScreen_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,9 +101,9 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.label23);
             this.guna2CustomGradientPanel1.Controls.Add(this.label22);
             this.guna2CustomGradientPanel1.Controls.Add(this.label20);
-            this.guna2CustomGradientPanel1.Controls.Add(this.txt_Floor);
             this.guna2CustomGradientPanel1.Controls.Add(this.AddVisitor_btn);
             this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox_userProfile);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btn_startCamera);
             this.guna2CustomGradientPanel1.Controls.Add(this.txt_CardNumber);
             this.guna2CustomGradientPanel1.Controls.Add(this.label19);
             this.guna2CustomGradientPanel1.Controls.Add(this.txt_PurposeofVisit);
@@ -125,7 +117,6 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.txt_Room);
             this.guna2CustomGradientPanel1.Controls.Add(this.txt_ContactPerson);
             this.guna2CustomGradientPanel1.Controls.Add(this.label14);
-            this.guna2CustomGradientPanel1.Controls.Add(this.label13);
             this.guna2CustomGradientPanel1.Controls.Add(this.label12);
             this.guna2CustomGradientPanel1.Controls.Add(this.label11);
             this.guna2CustomGradientPanel1.Controls.Add(this.label10);
@@ -147,8 +138,39 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.label2);
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(20, 170);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1069, 837);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1685, 837);
             this.guna2CustomGradientPanel1.TabIndex = 3;
+            // 
+            // comboBox_ValidID
+            // 
+            this.comboBox_ValidID.BackColor = System.Drawing.Color.Transparent;
+            this.comboBox_ValidID.BorderColor = System.Drawing.Color.Black;
+            this.comboBox_ValidID.BorderRadius = 10;
+            this.comboBox_ValidID.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBox_ValidID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_ValidID.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBox_ValidID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBox_ValidID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_ValidID.ForeColor = System.Drawing.Color.Black;
+            this.comboBox_ValidID.ItemHeight = 30;
+            this.comboBox_ValidID.Location = new System.Drawing.Point(32, 495);
+            this.comboBox_ValidID.Name = "comboBox_ValidID";
+            this.comboBox_ValidID.Size = new System.Drawing.Size(289, 36);
+            this.comboBox_ValidID.TabIndex = 42;
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(32, 473);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(64, 22);
+            this.label23.TabIndex = 41;
+            this.label23.Text = "Valid ID";
             // 
             // label22
             // 
@@ -176,31 +198,9 @@
             this.label20.Text = "_________________________________________________________________________________" +
     "______________________________________________";
             // 
-            // txt_Floor
-            // 
-            this.txt_Floor.BorderColor = System.Drawing.Color.Black;
-            this.txt_Floor.BorderRadius = 10;
-            this.txt_Floor.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_Floor.DefaultText = "";
-            this.txt_Floor.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_Floor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_Floor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_Floor.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_Floor.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Floor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Floor.ForeColor = System.Drawing.Color.Black;
-            this.txt_Floor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Floor.Location = new System.Drawing.Point(463, 415);
-            this.txt_Floor.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txt_Floor.Name = "txt_Floor";
-            this.txt_Floor.PasswordChar = '\0';
-            this.txt_Floor.PlaceholderText = "";
-            this.txt_Floor.SelectedText = "";
-            this.txt_Floor.Size = new System.Drawing.Size(120, 37);
-            this.txt_Floor.TabIndex = 36;
-            // 
             // AddVisitor_btn
             // 
+            this.AddVisitor_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddVisitor_btn.BorderRadius = 12;
             this.AddVisitor_btn.BorderThickness = 1;
             this.AddVisitor_btn.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -211,9 +211,9 @@
             this.AddVisitor_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.AddVisitor_btn.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddVisitor_btn.ForeColor = System.Drawing.Color.White;
-            this.AddVisitor_btn.Location = new System.Drawing.Point(862, 773);
+            this.AddVisitor_btn.Location = new System.Drawing.Point(1404, 723);
             this.AddVisitor_btn.Name = "AddVisitor_btn";
-            this.AddVisitor_btn.Size = new System.Drawing.Size(158, 42);
+            this.AddVisitor_btn.Size = new System.Drawing.Size(192, 42);
             this.AddVisitor_btn.TabIndex = 35;
             this.AddVisitor_btn.Text = "Add";
             this.AddVisitor_btn.Click += new System.EventHandler(this.AddVisitor_btn_Click);
@@ -226,12 +226,31 @@
             this.pictureBox_userProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox_userProfile.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_userProfile.Image")));
             this.pictureBox_userProfile.ImageRotate = 0F;
-            this.pictureBox_userProfile.Location = new System.Drawing.Point(836, 106);
+            this.pictureBox_userProfile.Location = new System.Drawing.Point(1295, 139);
             this.pictureBox_userProfile.Name = "pictureBox_userProfile";
-            this.pictureBox_userProfile.Size = new System.Drawing.Size(184, 165);
+            this.pictureBox_userProfile.Size = new System.Drawing.Size(301, 232);
             this.pictureBox_userProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_userProfile.TabIndex = 33;
             this.pictureBox_userProfile.TabStop = false;
+            // 
+            // btn_startCamera
+            // 
+            this.btn_startCamera.BorderRadius = 12;
+            this.btn_startCamera.BorderThickness = 1;
+            this.btn_startCamera.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_startCamera.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_startCamera.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_startCamera.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_startCamera.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_startCamera.FillColor = System.Drawing.Color.Green;
+            this.btn_startCamera.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_startCamera.ForeColor = System.Drawing.Color.White;
+            this.btn_startCamera.Image = ((System.Drawing.Image)(resources.GetObject("btn_startCamera.Image")));
+            this.btn_startCamera.Location = new System.Drawing.Point(1354, 387);
+            this.btn_startCamera.Name = "btn_startCamera";
+            this.btn_startCamera.Size = new System.Drawing.Size(181, 50);
+            this.btn_startCamera.TabIndex = 40;
+            this.btn_startCamera.Click += new System.EventHandler(this.btn_startCamera_Click);
             // 
             // txt_CardNumber
             // 
@@ -312,7 +331,7 @@
             // 
             // TimePicker_TimeofVisit
             // 
-            this.TimePicker_TimeofVisit.BackColor = System.Drawing.Color.White;
+            this.TimePicker_TimeofVisit.BackColor = System.Drawing.Color.GhostWhite;
             this.TimePicker_TimeofVisit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.TimePicker_TimeofVisit.BorderRadius = 10;
             this.TimePicker_TimeofVisit.BorderThickness = 1;
@@ -320,6 +339,7 @@
             this.TimePicker_TimeofVisit.FillColor = System.Drawing.Color.White;
             this.TimePicker_TimeofVisit.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.TimePicker_TimeofVisit.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.TimePicker_TimeofVisit.HoverState.FillColor = System.Drawing.Color.GhostWhite;
             this.TimePicker_TimeofVisit.IndicateFocus = true;
             this.TimePicker_TimeofVisit.Location = new System.Drawing.Point(535, 495);
             this.TimePicker_TimeofVisit.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -331,17 +351,18 @@
             // 
             // DatePicker_DateofVisit
             // 
-            this.DatePicker_DateofVisit.BackColor = System.Drawing.Color.White;
+            this.DatePicker_DateofVisit.BackColor = System.Drawing.Color.GhostWhite;
             this.DatePicker_DateofVisit.BorderRadius = 10;
             this.DatePicker_DateofVisit.BorderThickness = 1;
             this.DatePicker_DateofVisit.Checked = true;
             this.DatePicker_DateofVisit.FillColor = System.Drawing.Color.White;
             this.DatePicker_DateofVisit.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.DatePicker_DateofVisit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DatePicker_DateofVisit.HoverState.FillColor = System.Drawing.Color.GhostWhite;
             this.DatePicker_DateofVisit.IndicateFocus = true;
             this.DatePicker_DateofVisit.Location = new System.Drawing.Point(330, 495);
-            this.DatePicker_DateofVisit.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.DatePicker_DateofVisit.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DatePicker_DateofVisit.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
+            this.DatePicker_DateofVisit.MinDate = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
             this.DatePicker_DateofVisit.Name = "DatePicker_DateofVisit";
             this.DatePicker_DateofVisit.Size = new System.Drawing.Size(190, 39);
             this.DatePicker_DateofVisit.TabIndex = 27;
@@ -371,9 +392,9 @@
             this.label16.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(540, 473);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(43, 22);
+            this.label16.Size = new System.Drawing.Size(69, 22);
             this.label16.TabIndex = 25;
-            this.label16.Text = "Time";
+            this.label16.Text = "Time - In";
             // 
             // comboBox_Department
             // 
@@ -387,7 +408,7 @@
             this.comboBox_Department.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_Department.ForeColor = System.Drawing.Color.Black;
             this.comboBox_Department.ItemHeight = 30;
-            this.comboBox_Department.Location = new System.Drawing.Point(31, 498);
+            this.comboBox_Department.Location = new System.Drawing.Point(329, 416);
             this.comboBox_Department.Name = "comboBox_Department";
             this.comboBox_Department.Size = new System.Drawing.Size(291, 36);
             this.comboBox_Department.TabIndex = 24;
@@ -400,7 +421,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(27, 473);
+            this.label15.Location = new System.Drawing.Point(335, 388);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(91, 22);
             this.label15.TabIndex = 23;
@@ -420,7 +441,7 @@
             this.txt_Room.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Room.ForeColor = System.Drawing.Color.Black;
             this.txt_Room.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Room.Location = new System.Drawing.Point(330, 415);
+            this.txt_Room.Location = new System.Drawing.Point(627, 416);
             this.txt_Room.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txt_Room.Name = "txt_Room";
             this.txt_Room.PasswordChar = '\0';
@@ -461,25 +482,11 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(326, 387);
+            this.label14.Location = new System.Drawing.Point(625, 388);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(51, 22);
             this.label14.TabIndex = 19;
             this.label14.Text = "Room";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(459, 387);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(47, 22);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "Floor";
             // 
             // label12
             // 
@@ -560,16 +567,17 @@
             // 
             // datePicker_DateofBirth
             // 
-            this.datePicker_DateofBirth.BackColor = System.Drawing.Color.White;
+            this.datePicker_DateofBirth.BackColor = System.Drawing.Color.GhostWhite;
             this.datePicker_DateofBirth.BorderRadius = 10;
             this.datePicker_DateofBirth.BorderThickness = 1;
             this.datePicker_DateofBirth.Checked = true;
             this.datePicker_DateofBirth.FillColor = System.Drawing.Color.White;
             this.datePicker_DateofBirth.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.datePicker_DateofBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePicker_DateofBirth.HoverState.FillColor = System.Drawing.Color.GhostWhite;
             this.datePicker_DateofBirth.IndicateFocus = true;
             this.datePicker_DateofBirth.Location = new System.Drawing.Point(29, 265);
-            this.datePicker_DateofBirth.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.datePicker_DateofBirth.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
             this.datePicker_DateofBirth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datePicker_DateofBirth.Name = "datePicker_DateofBirth";
             this.datePicker_DateofBirth.Size = new System.Drawing.Size(291, 39);
@@ -808,53 +816,6 @@
             this.modal_panel.TabIndex = 42;
             this.modal_panel.Visible = false;
             // 
-            // pictureBox_CapturedImage
-            // 
-            this.pictureBox_CapturedImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox_CapturedImage.BorderRadius = 15;
-            this.pictureBox_CapturedImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox_CapturedImage.ImageRotate = 0F;
-            this.pictureBox_CapturedImage.Location = new System.Drawing.Point(1121, 276);
-            this.pictureBox_CapturedImage.Name = "pictureBox_CapturedImage";
-            this.pictureBox_CapturedImage.Size = new System.Drawing.Size(758, 314);
-            this.pictureBox_CapturedImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_CapturedImage.TabIndex = 4;
-            this.pictureBox_CapturedImage.TabStop = false;
-            // 
-            // Capture_btn
-            // 
-            this.Capture_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Capture_btn.BorderRadius = 12;
-            this.Capture_btn.BorderThickness = 1;
-            this.Capture_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Capture_btn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Capture_btn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Capture_btn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Capture_btn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Capture_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.Capture_btn.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Capture_btn.ForeColor = System.Drawing.Color.White;
-            this.Capture_btn.Image = ((System.Drawing.Image)(resources.GetObject("Capture_btn.Image")));
-            this.Capture_btn.Location = new System.Drawing.Point(1746, 643);
-            this.Capture_btn.Name = "Capture_btn";
-            this.Capture_btn.Size = new System.Drawing.Size(132, 42);
-            this.Capture_btn.TabIndex = 36;
-            this.Capture_btn.Text = "Capture";
-            this.Capture_btn.Click += new System.EventHandler(this.Capture_btn_Click);
-            // 
-            // label21
-            // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(1115, 227);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(163, 33);
-            this.label21.TabIndex = 37;
-            this.label21.Text = "Web Camera:";
-            // 
             // EnterVisitCode_btn
             // 
             this.EnterVisitCode_btn.BorderRadius = 12;
@@ -867,70 +828,12 @@
             this.EnterVisitCode_btn.FillColor = System.Drawing.Color.Navy;
             this.EnterVisitCode_btn.Font = new System.Drawing.Font("Times New Roman", 13.8F);
             this.EnterVisitCode_btn.ForeColor = System.Drawing.Color.White;
-            this.EnterVisitCode_btn.Location = new System.Drawing.Point(844, 119);
+            this.EnterVisitCode_btn.Location = new System.Drawing.Point(1398, 119);
             this.EnterVisitCode_btn.Name = "EnterVisitCode_btn";
             this.EnterVisitCode_btn.Size = new System.Drawing.Size(218, 45);
             this.EnterVisitCode_btn.TabIndex = 38;
             this.EnterVisitCode_btn.Text = "Enter Visit Code";
             this.EnterVisitCode_btn.Click += new System.EventHandler(this.EnterVisitCode_btn_Click);
-            // 
-            // btn_stopCamera
-            // 
-            this.btn_stopCamera.BorderRadius = 12;
-            this.btn_stopCamera.BorderThickness = 1;
-            this.btn_stopCamera.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_stopCamera.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_stopCamera.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_stopCamera.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_stopCamera.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_stopCamera.FillColor = System.Drawing.Color.Red;
-            this.btn_stopCamera.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_stopCamera.ForeColor = System.Drawing.Color.White;
-            this.btn_stopCamera.Image = ((System.Drawing.Image)(resources.GetObject("btn_stopCamera.Image")));
-            this.btn_stopCamera.Location = new System.Drawing.Point(1284, 643);
-            this.btn_stopCamera.Name = "btn_stopCamera";
-            this.btn_stopCamera.Size = new System.Drawing.Size(132, 42);
-            this.btn_stopCamera.TabIndex = 39;
-            this.btn_stopCamera.Text = "Stop";
-            this.btn_stopCamera.Click += new System.EventHandler(this.btn_stopCamera_Click);
-            // 
-            // btn_startCamera
-            // 
-            this.btn_startCamera.BorderRadius = 12;
-            this.btn_startCamera.BorderThickness = 1;
-            this.btn_startCamera.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_startCamera.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_startCamera.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_startCamera.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_startCamera.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_startCamera.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btn_startCamera.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_startCamera.ForeColor = System.Drawing.Color.White;
-            this.btn_startCamera.Image = ((System.Drawing.Image)(resources.GetObject("btn_startCamera.Image")));
-            this.btn_startCamera.Location = new System.Drawing.Point(1120, 643);
-            this.btn_startCamera.Name = "btn_startCamera";
-            this.btn_startCamera.Size = new System.Drawing.Size(132, 42);
-            this.btn_startCamera.TabIndex = 40;
-            this.btn_startCamera.Text = "Start";
-            this.btn_startCamera.Click += new System.EventHandler(this.btn_startCamera_Click);
-            // 
-            // comboBox_selectCamera
-            // 
-            this.comboBox_selectCamera.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_selectCamera.BackColor = System.Drawing.Color.Transparent;
-            this.comboBox_selectCamera.BorderColor = System.Drawing.Color.Black;
-            this.comboBox_selectCamera.BorderRadius = 12;
-            this.comboBox_selectCamera.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBox_selectCamera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_selectCamera.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBox_selectCamera.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBox_selectCamera.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_selectCamera.ForeColor = System.Drawing.Color.DimGray;
-            this.comboBox_selectCamera.ItemHeight = 30;
-            this.comboBox_selectCamera.Location = new System.Drawing.Point(1581, 227);
-            this.comboBox_selectCamera.Name = "comboBox_selectCamera";
-            this.comboBox_selectCamera.Size = new System.Drawing.Size(297, 36);
-            this.comboBox_selectCamera.TabIndex = 41;
             // 
             // kryptonPalette1
             // 
@@ -953,48 +856,11 @@
             this.AddVisitorScreen_panel.Controls.Add(this.label1);
             this.AddVisitorScreen_panel.Controls.Add(this.EnterVisitCode_btn);
             this.AddVisitorScreen_panel.Controls.Add(this.guna2CustomGradientPanel1);
-            this.AddVisitorScreen_panel.Controls.Add(this.Capture_btn);
-            this.AddVisitorScreen_panel.Controls.Add(this.btn_stopCamera);
-            this.AddVisitorScreen_panel.Controls.Add(this.btn_startCamera);
-            this.AddVisitorScreen_panel.Controls.Add(this.comboBox_selectCamera);
-            this.AddVisitorScreen_panel.Controls.Add(this.label21);
-            this.AddVisitorScreen_panel.Controls.Add(this.pictureBox_CapturedImage);
             this.AddVisitorScreen_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AddVisitorScreen_panel.Location = new System.Drawing.Point(0, 0);
             this.AddVisitorScreen_panel.Name = "AddVisitorScreen_panel";
             this.AddVisitorScreen_panel.Size = new System.Drawing.Size(1902, 1033);
             this.AddVisitorScreen_panel.TabIndex = 43;
-            // 
-            // label23
-            // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(609, 387);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(64, 22);
-            this.label23.TabIndex = 41;
-            this.label23.Text = "Valid ID";
-            // 
-            // comboBox_ValidID
-            // 
-            this.comboBox_ValidID.BackColor = System.Drawing.Color.Transparent;
-            this.comboBox_ValidID.BorderColor = System.Drawing.Color.Black;
-            this.comboBox_ValidID.BorderRadius = 10;
-            this.comboBox_ValidID.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBox_ValidID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_ValidID.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBox_ValidID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBox_ValidID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_ValidID.ForeColor = System.Drawing.Color.Black;
-            this.comboBox_ValidID.ItemHeight = 30;
-            this.comboBox_ValidID.Location = new System.Drawing.Point(603, 416);
-            this.comboBox_ValidID.Name = "comboBox_ValidID";
-            this.comboBox_ValidID.Size = new System.Drawing.Size(216, 36);
-            this.comboBox_ValidID.TabIndex = 42;
             // 
             // AddVisitor
             // 
@@ -1018,7 +884,6 @@
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_userProfile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CapturedImage)).EndInit();
             this.AddVisitorScreen_panel.ResumeLayout(false);
             this.AddVisitorScreen_panel.PerformLayout();
             this.ResumeLayout(false);
@@ -1048,7 +913,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txt_Room;
         private Guna.UI2.WinForms.Guna2TextBox txt_ContactPerson;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2ComboBox comboBox_Department;
@@ -1063,20 +927,14 @@
         private System.Windows.Forms.Label label18;
         private Guna.UI2.WinForms.Guna2PictureBox pictureBox_userProfile;
         private Guna.UI2.WinForms.Guna2Button AddVisitor_btn;
-        private Guna.UI2.WinForms.Guna2PictureBox pictureBox_CapturedImage;
-        private Guna.UI2.WinForms.Guna2Button Capture_btn;
-        private System.Windows.Forms.Label label21;
-        private Guna.UI2.WinForms.Guna2TextBox txt_Floor;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label20;
         private Guna.UI2.WinForms.Guna2Button EnterVisitCode_btn;
-        private Guna.UI2.WinForms.Guna2Button btn_stopCamera;
-        private Guna.UI2.WinForms.Guna2Button btn_startCamera;
-        private Guna.UI2.WinForms.Guna2ComboBox comboBox_selectCamera;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private Guna.UI2.WinForms.Guna2Panel AddVisitorScreen_panel;
         private Guna.UI2.WinForms.Guna2Panel modal_panel;
         private System.Windows.Forms.Label label23;
         private Guna.UI2.WinForms.Guna2ComboBox comboBox_ValidID;
+        private Guna.UI2.WinForms.Guna2Button btn_startCamera;
     }
 }

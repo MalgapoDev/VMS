@@ -87,12 +87,14 @@
             this.History_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
             this.History_btn.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.History_btn.ForeColor = System.Drawing.Color.White;
+            this.History_btn.HoverState.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.History_btn.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
             this.History_btn.Image = ((System.Drawing.Image)(resources.GetObject("History_btn.Image")));
             this.History_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.History_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.History_btn.Location = new System.Drawing.Point(20, 0);
+            this.History_btn.Location = new System.Drawing.Point(0, 0);
             this.History_btn.Name = "History_btn";
-            this.History_btn.Size = new System.Drawing.Size(268, 63);
+            this.History_btn.Size = new System.Drawing.Size(288, 63);
             this.History_btn.TabIndex = 8;
             this.History_btn.Text = "History";
             this.History_btn.Click += new System.EventHandler(this.History_btn_Click);
@@ -117,12 +119,14 @@
             this.Reports_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
             this.Reports_btn.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Reports_btn.ForeColor = System.Drawing.Color.White;
+            this.Reports_btn.HoverState.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.Reports_btn.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
             this.Reports_btn.Image = ((System.Drawing.Image)(resources.GetObject("Reports_btn.Image")));
             this.Reports_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Reports_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.Reports_btn.Location = new System.Drawing.Point(20, 0);
+            this.Reports_btn.Location = new System.Drawing.Point(0, 0);
             this.Reports_btn.Name = "Reports_btn";
-            this.Reports_btn.Size = new System.Drawing.Size(268, 63);
+            this.Reports_btn.Size = new System.Drawing.Size(288, 63);
             this.Reports_btn.TabIndex = 8;
             this.Reports_btn.Text = "Reports";
             this.Reports_btn.Click += new System.EventHandler(this.Reports_btn_Click);
@@ -147,12 +151,14 @@
             this.add_Visitor_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
             this.add_Visitor_btn.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_Visitor_btn.ForeColor = System.Drawing.Color.White;
+            this.add_Visitor_btn.HoverState.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.add_Visitor_btn.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
             this.add_Visitor_btn.Image = ((System.Drawing.Image)(resources.GetObject("add_Visitor_btn.Image")));
             this.add_Visitor_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.add_Visitor_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.add_Visitor_btn.Location = new System.Drawing.Point(20, 0);
+            this.add_Visitor_btn.Location = new System.Drawing.Point(0, 0);
             this.add_Visitor_btn.Name = "add_Visitor_btn";
-            this.add_Visitor_btn.Size = new System.Drawing.Size(265, 63);
+            this.add_Visitor_btn.Size = new System.Drawing.Size(288, 63);
             this.add_Visitor_btn.TabIndex = 7;
             this.add_Visitor_btn.Text = "Add Visitor";
             this.add_Visitor_btn.Click += new System.EventHandler(this.add_Visitor_btn_Click);
@@ -177,12 +183,14 @@
             this.Queue_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
             this.Queue_btn.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Queue_btn.ForeColor = System.Drawing.Color.White;
+            this.Queue_btn.HoverState.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.Queue_btn.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
             this.Queue_btn.Image = ((System.Drawing.Image)(resources.GetObject("Queue_btn.Image")));
             this.Queue_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Queue_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.Queue_btn.Location = new System.Drawing.Point(20, 0);
+            this.Queue_btn.Location = new System.Drawing.Point(-3, 0);
             this.Queue_btn.Name = "Queue_btn";
-            this.Queue_btn.Size = new System.Drawing.Size(268, 63);
+            this.Queue_btn.Size = new System.Drawing.Size(291, 63);
             this.Queue_btn.TabIndex = 8;
             this.Queue_btn.Text = "Queue";
             this.Queue_btn.Click += new System.EventHandler(this.Queue_btn_Click);
@@ -199,13 +207,14 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(293, 675);
+            this.guna2Panel1.Size = new System.Drawing.Size(293, 1033);
             this.guna2Panel1.TabIndex = 7;
             // 
             // Logout_btn
             // 
-            this.Logout_btn.BorderRadius = 12;
-            this.Logout_btn.BorderThickness = 1;
+            this.Logout_btn.BorderColor = System.Drawing.Color.Gainsboro;
+            this.Logout_btn.BorderRadius = 15;
+            this.Logout_btn.BorderThickness = 2;
             this.Logout_btn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Logout_btn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Logout_btn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -214,13 +223,11 @@
             this.Logout_btn.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Logout_btn.ForeColor = System.Drawing.Color.White;
             this.Logout_btn.Image = ((System.Drawing.Image)(resources.GetObject("Logout_btn.Image")));
-            this.Logout_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Logout_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.Logout_btn.Location = new System.Drawing.Point(12, 956);
+            this.Logout_btn.Location = new System.Drawing.Point(66, 958);
             this.Logout_btn.Name = "Logout_btn";
-            this.Logout_btn.Size = new System.Drawing.Size(264, 51);
+            this.Logout_btn.Size = new System.Drawing.Size(149, 51);
             this.Logout_btn.TabIndex = 8;
-            this.Logout_btn.Text = "Logout";
             this.Logout_btn.Click += new System.EventHandler(this.Logout_btn_Click);
             // 
             // logoImage
@@ -241,14 +248,14 @@
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(293, 0);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(990, 675);
+            this.MainPanel.Size = new System.Drawing.Size(990, 1033);
             this.MainPanel.TabIndex = 8;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 675);
+            this.ClientSize = new System.Drawing.Size(1283, 1033);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -257,7 +264,7 @@
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Visitor Management System";
+            this.Text = "     Visitor Management System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.History_panel.ResumeLayout(false);
