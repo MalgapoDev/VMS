@@ -75,6 +75,7 @@
             this.EnterVisitCode_btn = new Guna.UI2.WinForms.Guna2Button();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.AddVisitorScreen_panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.kryptonPalette2 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_userProfile)).BeginInit();
             this.AddVisitorScreen_panel.SuspendLayout();
@@ -412,6 +413,7 @@
             this.comboBox_Department.Name = "comboBox_Department";
             this.comboBox_Department.Size = new System.Drawing.Size(291, 36);
             this.comboBox_Department.TabIndex = 24;
+            this.comboBox_Department.SelectedIndexChanged += new System.EventHandler(this.comboBox_Department_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -809,10 +811,9 @@
             // 
             this.modal_panel.BackColor = System.Drawing.Color.Transparent;
             this.modal_panel.BorderColor = System.Drawing.Color.Transparent;
-            this.modal_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.modal_panel.Location = new System.Drawing.Point(0, 0);
             this.modal_panel.Name = "modal_panel";
-            this.modal_panel.Size = new System.Drawing.Size(1902, 1033);
+            this.modal_panel.Size = new System.Drawing.Size(508, 416);
             this.modal_panel.TabIndex = 42;
             this.modal_panel.Visible = false;
             // 
@@ -861,6 +862,22 @@
             this.AddVisitorScreen_panel.Name = "AddVisitorScreen_panel";
             this.AddVisitorScreen_panel.Size = new System.Drawing.Size(1902, 1033);
             this.AddVisitorScreen_panel.TabIndex = 43;
+            // 
+            // kryptonPalette2
+            // 
+            this.kryptonPalette2.FormStyles.FormCommon.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
+            this.kryptonPalette2.FormStyles.FormCommon.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
+            this.kryptonPalette2.HeaderStyles.HeaderCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPalette2.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.Color1 = System.Drawing.Color.White;
+            this.kryptonPalette2.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonPalette2.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonPalette2.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonPalette2.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
+            this.kryptonPalette2.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
+            this.kryptonPalette2.HeaderStyles.HeaderForm.StateCommon.Content.LongText.Color1 = System.Drawing.Color.White;
+            this.kryptonPalette2.HeaderStyles.HeaderForm.StateCommon.Content.LongText.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // AddVisitor
             // 
@@ -936,5 +953,6 @@
         private System.Windows.Forms.Label label23;
         private Guna.UI2.WinForms.Guna2ComboBox comboBox_ValidID;
         private Guna.UI2.WinForms.Guna2Button btn_startCamera;
+        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette2;
     }
 }

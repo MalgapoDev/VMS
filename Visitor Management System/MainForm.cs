@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Visitor_Management_System.Methods;
 
 namespace Visitor_Management_System
 {
@@ -31,59 +32,37 @@ namespace Visitor_Management_System
             pictureBox.Region = new Region(path);
         }
 
-        private void loadForm(KryptonForm newForm)
-        {
-            if (this.MainPanel.Controls.Count > 0)
-            {
-                KryptonForm currentForm = this.MainPanel.Controls[0] as KryptonForm;
-                if (currentForm == newForm)
-                    return; // Prevent reloading if it's the same form
-
-                this.MainPanel.Controls.RemoveAt(0);
-            }
-
-            MainPanel.SuspendLayout();
-
-            newForm.TopLevel = false;
-            newForm.Dock = DockStyle.Fill;
-            this.MainPanel.Controls.Add(newForm);
-            this.MainPanel.Tag = newForm;
-            newForm.Show();
-
-            MainPanel.ResumeLayout();
-        }
-
         private void add_Visitor_btn_Click(object sender, EventArgs e)
         {
             if (cachedAddVisitorForm == null || cachedAddVisitorForm.IsDisposed)
             {
                 cachedAddVisitorForm = new AddVisitor();
             }
-            loadForm(cachedAddVisitorForm);
+            FormLoader.LoadForm(MainPanel, cachedAddVisitorForm);
             add_Visitor_btn.Cursor = Cursors.Hand;
         }
 
         private void Queue_btn_Click(object sender, EventArgs e)
         {
-            loadForm(new QueueList());
+            FormLoader.LoadForm(MainPanel, new QueueList());
             Queue_btn.Cursor = Cursors.Hand;
         }
 
         private void Reports_btn_Click(object sender, EventArgs e)
         {
-            loadForm(new Reports());
+            FormLoader.LoadForm(MainPanel, new Reports());
             Reports_btn.Cursor = Cursors.Hand;
         }
 
         private void History_btn_Click(object sender, EventArgs e)
         {
-            loadForm(new History());
+            FormLoader.LoadForm(MainPanel, new History());
             History_btn.Cursor = Cursors.Hand;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            loadForm(new QueueList());
+            FormLoader.LoadForm(MainPanel, new QueueList());
             this.MinimizeBox = true;
         }
 
@@ -92,6 +71,12 @@ namespace Visitor_Management_System
             Form1 form = new Form1();
             form.Show();
             Visible = false;
+        }
+
+        private void btn_Dept_Click(object sender, EventArgs e)
+        {
+            addDepartment dept = new addDepartment();
+            dept.ShowDialog();
         }
     }
 }

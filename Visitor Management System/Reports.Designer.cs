@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reports));
             this.label1 = new System.Windows.Forms.Label();
             this.dataGrid_ReportTable = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -44,8 +44,15 @@
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.dateFilter_comboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_Daily = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_Weekly = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_Monthly = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_Quarterly = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_Yearly = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_ReportTable)).BeginInit();
             this.guna2Panel1.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -60,38 +67,38 @@
             // 
             // dataGrid_ReportTable
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dataGrid_ReportTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            this.dataGrid_ReportTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGrid_ReportTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGrid_ReportTable.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGrid_ReportTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid_ReportTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid_ReportTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGrid_ReportTable.ColumnHeadersHeight = 20;
             this.dataGrid_ReportTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid_ReportTable.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid_ReportTable.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGrid_ReportTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dataGrid_ReportTable.Location = new System.Drawing.Point(17, 356);
+            this.dataGrid_ReportTable.Location = new System.Drawing.Point(200, 356);
             this.dataGrid_ReportTable.Name = "dataGrid_ReportTable";
             this.dataGrid_ReportTable.RowHeadersVisible = false;
             this.dataGrid_ReportTable.RowHeadersWidth = 51;
             this.dataGrid_ReportTable.RowTemplate.Height = 24;
-            this.dataGrid_ReportTable.Size = new System.Drawing.Size(1208, 286);
+            this.dataGrid_ReportTable.Size = new System.Drawing.Size(1025, 286);
             this.dataGrid_ReportTable.TabIndex = 4;
             this.dataGrid_ReportTable.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dataGrid_ReportTable.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -131,7 +138,7 @@
             this.txt_reportSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_reportSearch.IconRight = ((System.Drawing.Image)(resources.GetObject("txt_reportSearch.IconRight")));
             this.txt_reportSearch.IconRightSize = new System.Drawing.Size(30, 30);
-            this.txt_reportSearch.Location = new System.Drawing.Point(36, 284);
+            this.txt_reportSearch.Location = new System.Drawing.Point(200, 277);
             this.txt_reportSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_reportSearch.Name = "txt_reportSearch";
             this.txt_reportSearch.PasswordChar = '\0';
@@ -237,6 +244,7 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.guna2Panel2);
             this.guna2Panel1.Controls.Add(this.dateFilter_comboBox);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.downloadReport_PDF_btn);
@@ -269,6 +277,88 @@
             this.dateFilter_comboBox.TabIndex = 13;
             this.dateFilter_comboBox.SelectedIndexChanged += new System.EventHandler(this.dateFilter_comboBox_SelectedIndexChanged);
             // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.Controls.Add(this.btn_Yearly);
+            this.guna2Panel2.Controls.Add(this.btn_Daily);
+            this.guna2Panel2.Controls.Add(this.btn_Quarterly);
+            this.guna2Panel2.Controls.Add(this.btn_Weekly);
+            this.guna2Panel2.Controls.Add(this.btn_Monthly);
+            this.guna2Panel2.Location = new System.Drawing.Point(3, 356);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(191, 254);
+            this.guna2Panel2.TabIndex = 14;
+            // 
+            // btn_Daily
+            // 
+            this.btn_Daily.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Daily.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Daily.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Daily.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Daily.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Daily.ForeColor = System.Drawing.Color.White;
+            this.btn_Daily.Location = new System.Drawing.Point(0, 3);
+            this.btn_Daily.Name = "btn_Daily";
+            this.btn_Daily.Size = new System.Drawing.Size(191, 45);
+            this.btn_Daily.TabIndex = 15;
+            this.btn_Daily.Text = "Daily";
+            // 
+            // btn_Weekly
+            // 
+            this.btn_Weekly.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Weekly.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Weekly.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Weekly.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Weekly.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Weekly.ForeColor = System.Drawing.Color.White;
+            this.btn_Weekly.Location = new System.Drawing.Point(0, 54);
+            this.btn_Weekly.Name = "btn_Weekly";
+            this.btn_Weekly.Size = new System.Drawing.Size(191, 45);
+            this.btn_Weekly.TabIndex = 16;
+            this.btn_Weekly.Text = "Weekly";
+            // 
+            // btn_Monthly
+            // 
+            this.btn_Monthly.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Monthly.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Monthly.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Monthly.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Monthly.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Monthly.ForeColor = System.Drawing.Color.White;
+            this.btn_Monthly.Location = new System.Drawing.Point(0, 105);
+            this.btn_Monthly.Name = "btn_Monthly";
+            this.btn_Monthly.Size = new System.Drawing.Size(191, 45);
+            this.btn_Monthly.TabIndex = 17;
+            this.btn_Monthly.Text = "Monthly";
+            // 
+            // btn_Quarterly
+            // 
+            this.btn_Quarterly.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Quarterly.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Quarterly.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Quarterly.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Quarterly.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Quarterly.ForeColor = System.Drawing.Color.White;
+            this.btn_Quarterly.Location = new System.Drawing.Point(0, 156);
+            this.btn_Quarterly.Name = "btn_Quarterly";
+            this.btn_Quarterly.Size = new System.Drawing.Size(191, 45);
+            this.btn_Quarterly.TabIndex = 18;
+            this.btn_Quarterly.Text = "Quarterly";
+            // 
+            // btn_Yearly
+            // 
+            this.btn_Yearly.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Yearly.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Yearly.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Yearly.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Yearly.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Yearly.ForeColor = System.Drawing.Color.White;
+            this.btn_Yearly.Location = new System.Drawing.Point(0, 207);
+            this.btn_Yearly.Name = "btn_Yearly";
+            this.btn_Yearly.Size = new System.Drawing.Size(191, 45);
+            this.btn_Yearly.TabIndex = 19;
+            this.btn_Yearly.Text = "Yearly";
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -291,6 +381,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_ReportTable)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            this.guna2Panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -307,5 +398,11 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2ComboBox dateFilter_comboBox;
+        private Guna.UI2.WinForms.Guna2Button btn_Daily;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Button btn_Yearly;
+        private Guna.UI2.WinForms.Guna2Button btn_Quarterly;
+        private Guna.UI2.WinForms.Guna2Button btn_Weekly;
+        private Guna.UI2.WinForms.Guna2Button btn_Monthly;
     }
 }

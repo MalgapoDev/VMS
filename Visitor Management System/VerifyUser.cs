@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Visitor_Management_System.Methods;
 
 namespace Visitor_Management_System
 {
@@ -22,25 +23,12 @@ namespace Visitor_Management_System
             txt_PinCode.KeyPress += txt_PinCode_KeyPress;
         }
 
-        private void loadForm(object KryptonForm)
-        {
-            if (this.Verified_User_panel.Controls.Count > 0)
-                this.Verified_User_panel.Controls.RemoveAt(0);
-            KryptonForm f = KryptonForm as KryptonForm;
-            f.TopLevel = false;
-            f.Dock = DockStyle.Fill;
-            this.Verified_User_panel.Controls.Add(f);
-            this.Verified_User_panel.Tag = f;
-            f.Show();
-
-        }
-
         private void confirmPinCode_btn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txt_PinCode.Text))
             {
                 MessageBox.Show("Please enter a pin code.");
-                loadForm(new AddVisitor());
+                FormLoader.LoadForm(Verified_User_panel, new AddVisitor());
                 return;
             }
 
@@ -58,9 +46,7 @@ namespace Visitor_Management_System
             }
             else
             {
-                MessageBox.Show("Pin Code Confirmed");
-
-                loadForm(new VerifiedUser());
+                FormLoader.LoadForm(Verified_User_panel, new VerifiedUser());
             }
 
         }
@@ -71,6 +57,11 @@ namespace Visitor_Management_System
             {
                 e.Handled = true;
             }
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            FormLoader.LoadForm(Verified_User_panel, new AddVisitor());
         }
     }
 }

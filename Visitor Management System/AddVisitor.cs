@@ -17,6 +17,7 @@ using ComponentFactory.Krypton.Toolkit;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 using System.Drawing.Imaging;
+using Visitor_Management_System.Methods;
 
 
 
@@ -26,8 +27,7 @@ namespace Visitor_Management_System
     public partial class AddVisitor : KryptonForm
     {
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
-
-        
+        Dictionary<string, string> departmentRoomMap = new Dictionary<string, string>();
         public AddVisitor()
         {
             InitializeComponent();
@@ -35,19 +35,6 @@ namespace Visitor_Management_System
             TimePicker_TimeofVisit.Format = DateTimePickerFormat.Custom;
             TimePicker_TimeofVisit.CustomFormat = "hh:mm tt";
             TimePicker_TimeofVisit.Value = DateTime.Now;
-        }
-
-        private void loadForm(object KryptonForm)
-        {
-            if (this.modal_panel.Controls.Count > 0)
-                this.modal_panel.Controls.RemoveAt(0);
-            KryptonForm f = KryptonForm as KryptonForm;
-            f.TopLevel = false;
-            f.Dock = DockStyle.Fill;
-            this.modal_panel.Controls.Add(f);
-            this.modal_panel.Tag = f;
-            f.Show();
-
         }
 
         private void AddVisitor_Load(object sender, EventArgs e)
@@ -62,11 +49,33 @@ namespace Visitor_Management_System
                 comboBox_suffix.Items.Add(sfx);
             }
 
-            string[] departments = { "Information Technology", "Accounting", "Engineering", "HR" };
-
-            foreach (string dept in departments)
+            try
             {
-                comboBox_Department.Items.Add(dept);
+                MySqlConnection mysql = new MySqlConnection(mySqlCon);
+                mysql.Open();
+
+                MySqlCommand cmd = new MySqlCommand("SELECT DepartmentName, Room FROM department", mysql);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string departmentName = reader["DepartmentName"].ToString();
+                    string room = reader["Room"].ToString();
+
+                    comboBox_Department.Items.Add(departmentName);
+
+                    // Store the department and room in a dictionary
+                    if (!departmentRoomMap.ContainsKey(departmentName))
+                    {
+                        departmentRoomMap.Add(departmentName, room);
+                    }
+                }
+
+                mysql.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
             string[] ValidID = { "Postal ID", "PRC ID", "OFW ID", "National ID", "Philhealth ID", "SSS ID",
@@ -93,8 +102,7 @@ namespace Visitor_Management_System
 
         private void EnterVisitCode_btn_Click(object sender, EventArgs e)
         {
-            loadForm(new VerifyUser());
-
+            FormLoader.LoadForm(modal_panel, new VerifyUser());
             modal_panel.Visible = true;
         }
 
@@ -140,10 +148,10 @@ namespace Visitor_Management_System
             }
             else
             {
-                MySqlConnection mysql = new MySqlConnection(mySqlCon);
-
                 try
                 {
+                    MySqlConnection mysql = new MySqlConnection(mySqlCon);
+
                     mysql.Open();
                     MySqlCommand cmd = new MySqlCommand("INSERT INTO addvisitor (FirstName, LastName, MiddleInitial, Suffix, Email, ContactNumber, DateofBirth, Address, VisitorImage, ContactPerson, IDPresented, Room, Department, Date, TimeIn, Purpose, CardNumber) " +
                     "VALUES (@FirstName, @LastName, @MiddleInitial, @Suffix, @Email, @ContactNumber, @DateofBirth, @Address, @VisitorImage, @ContactPerson, @IDPresented, @Room, @Department, @Date, @TimeIn, @Purpose, @CardNumber)", mysql);
@@ -199,7 +207,7 @@ namespace Visitor_Management_System
                     MessageBox.Show("Error: " + ex.Message, "Add Visitor Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                loadForm(new AddUserPrompt());
+                FormLoader.LoadForm(modal_panel, new AddUserPrompt());
                 modal_panel.Visible = true;
 
             }
@@ -213,6 +221,16 @@ namespace Visitor_Management_System
                 {
                     pictureBox_userProfile.Image = captureForm.CapturedImage;
                 }
+            }
+        }
+
+        private void comboBox_Department_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedDepartment = comboBox_Department.SelectedItem.ToString();
+
+            if (departmentRoomMap.ContainsKey(selectedDepartment))
+            {
+                txt_Room.Text = departmentRoomMap[selectedDepartment];
             }
         }
     }

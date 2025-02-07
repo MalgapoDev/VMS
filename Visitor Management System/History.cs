@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using System.IO;
 using Org.BouncyCastle.Asn1.Cms;
 using System.Web.UI.WebControls;
+using Visitor_Management_System.Methods;
 
 namespace Visitor_Management_System
 {
@@ -23,31 +24,10 @@ namespace Visitor_Management_System
         public History()
         {
             InitializeComponent();
-            LoadDataIntoGridView();
+            table = ReportandHistory.LoadDataIntoGridView();
+            dataGrid_HistoryTable.DataSource = table;
 
             txt_historySearch.TextChanged += txt_historySearch_TextChanged;
-        }
-        private void LoadDataIntoGridView()
-        {
-            table = new DataTable();
-            table.Columns.Add("Name", typeof(string));
-            table.Columns.Add("Company", typeof(string));
-            table.Columns.Add("Department", typeof(string));
-            table.Columns.Add("Person to Visit", typeof(string));
-            table.Columns.Add("Purpose", typeof(string));
-            table.Columns.Add("ID Presented", typeof(string));
-            table.Columns.Add("Date", typeof(DateTime));
-            table.Columns.Add("Time - In", typeof(string));
-            table.Columns.Add("Time - Out", typeof(string));
-            table.Columns.Add("ID", typeof(int));
-
-            table.Rows.Add("Rj Canlas", "ABC Company", "IT", "John Doe", "Contract Signing", "Phil ID", DateTime.Now.Date, "11:00 AM", "1:00 PM", 1);
-            table.Rows.Add("Carl James Dolorito", "ABC Company", "HR", "Angeles Tablante", "Meeting", "Passport", new DateTime(2025, 2, 3), "10:00 AM", "2:00 PM", 2);
-            table.Rows.Add("Michael Malgapo", "ABC Company", "IT", "Angeles Tablante", "Discussion", "Passport", new DateTime(2025, 3, 15), "11:00 AM", "1:00 PM", 3);
-            table.Rows.Add("Josh Santuico", "ABC Company", "IT", "Angeles Tablante", "Meetng", "Passport", new DateTime(2025, 1, 23), "11:00 AM", "1:00 PM", 4);
-            table.Rows.Add("Harry Mariano", "ABC Company", "Accounting", "Trixia Meneses", "Budget Checking", "Passport", new DateTime(2025, 4, 20), "11:00 AM", "1:00 PM", 5);
-
-            dataGrid_HistoryTable.DataSource = table;
         }
 
         private void History_Load(object sender, EventArgs e)
@@ -67,74 +47,17 @@ namespace Visitor_Management_System
         private void txt_historySearch_TextChanged(object sender, EventArgs e)
         {
             string filterText = txt_historySearch.Text;
-            if (string.IsNullOrWhiteSpace(filterText))
-            {
-                dataGrid_HistoryTable.DataSource = table;
-            }
-            else
-            {
-                DataView filteredView = new DataView(table);
-                filteredView.RowFilter = $"Name LIKE '%{filterText}%'";
-                dataGrid_HistoryTable.DataSource = filteredView;
-            }
+            dataGrid_HistoryTable.DataSource = ReportandHistory.FilterByName(table, filterText);
         }
 
         private void comboBox_Department_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGrid_HistoryTable.DataSource = ApplyFilters();
+            dataGrid_HistoryTable.DataSource = ReportandHistory.ApplyFilters(table, comboBox_Department.SelectedItem?.ToString(), dateFilter_comboBox.SelectedItem?.ToString());
         }
 
         private void dateFilter_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGrid_HistoryTable.DataSource = ApplyFilters();
-        }
-        private DataTable ApplyFilters()
-        {
-            string selectedDepartment = comboBox_Department.SelectedItem?.ToString();
-            string selectedDateFilter = dateFilter_comboBox.SelectedItem?.ToString();
-            DateTime today = DateTime.Today;
-
-            DataTable filteredData = table.Clone();
-
-            foreach (DataRow row in table.Rows)
-            {
-                // If "All" is selected, match all departments
-                bool matchesDepartment = selectedDepartment == "All" || string.IsNullOrWhiteSpace(selectedDepartment) || row["Department"].ToString() == selectedDepartment;
-
-                DateTime date = Convert.ToDateTime(row["Date"]);
-                bool matchesDateFilter = false;
-
-                switch (selectedDateFilter)
-                {
-                    case "Daily":
-                        matchesDateFilter = date.Date == today;
-                        break;
-                    case "Weekly":
-                        matchesDateFilter = date >= today.AddDays(-7) && date <= today;
-                        break;
-                    case "Monthly":
-                        matchesDateFilter = date >= today.AddMonths(-1) && date <= today;
-                        break;
-                    case "Quarterly":
-                        int currentQuarter = (today.Month - 1) / 3 + 1;
-                        int rowQuarter = (date.Month - 1) / 3 + 1;
-                        matchesDateFilter = date.Year == today.Year && rowQuarter == currentQuarter;
-                        break;
-                    case "Yearly":
-                        matchesDateFilter = date.Year == today.Year;
-                        break;
-                    default:
-                        matchesDateFilter = true; // No date filter selected
-                        break;
-                }
-
-                if (matchesDepartment && matchesDateFilter)
-                {
-                    filteredData.ImportRow(row);
-                }
-            }
-
-            return filteredData;
+            dataGrid_HistoryTable.DataSource = ReportandHistory.ApplyFilters(table, comboBox_Department.SelectedItem?.ToString(), dateFilter_comboBox.SelectedItem?.ToString());
         }
     }
 }

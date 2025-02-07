@@ -40,6 +40,8 @@
             this.Queue_panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Queue_btn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_Dept = new Guna.UI2.WinForms.Guna2Button();
             this.Logout_btn = new Guna.UI2.WinForms.Guna2Button();
             this.logoImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.MainPanel = new Guna.UI2.WinForms.Guna2Panel();
@@ -48,6 +50,7 @@
             this.addVisitor_panel.SuspendLayout();
             this.Queue_panel.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +75,7 @@
             this.History_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
             this.History_panel.Controls.Add(this.History_btn);
             this.History_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.History_panel.Location = new System.Drawing.Point(3, 532);
+            this.History_panel.Location = new System.Drawing.Point(5, 620);
             this.History_panel.Name = "History_panel";
             this.History_panel.Size = new System.Drawing.Size(288, 63);
             this.History_panel.TabIndex = 6;
@@ -104,7 +107,7 @@
             this.Reports_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
             this.Reports_panel.Controls.Add(this.Reports_btn);
             this.Reports_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Reports_panel.Location = new System.Drawing.Point(3, 456);
+            this.Reports_panel.Location = new System.Drawing.Point(5, 544);
             this.Reports_panel.Name = "Reports_panel";
             this.Reports_panel.Size = new System.Drawing.Size(288, 63);
             this.Reports_panel.TabIndex = 5;
@@ -124,9 +127,9 @@
             this.Reports_btn.Image = ((System.Drawing.Image)(resources.GetObject("Reports_btn.Image")));
             this.Reports_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Reports_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.Reports_btn.Location = new System.Drawing.Point(0, 0);
+            this.Reports_btn.Location = new System.Drawing.Point(-2, 0);
             this.Reports_btn.Name = "Reports_btn";
-            this.Reports_btn.Size = new System.Drawing.Size(288, 63);
+            this.Reports_btn.Size = new System.Drawing.Size(290, 63);
             this.Reports_btn.TabIndex = 8;
             this.Reports_btn.Text = "Reports";
             this.Reports_btn.Click += new System.EventHandler(this.Reports_btn_Click);
@@ -136,7 +139,7 @@
             this.addVisitor_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
             this.addVisitor_panel.Controls.Add(this.add_Visitor_btn);
             this.addVisitor_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addVisitor_panel.Location = new System.Drawing.Point(3, 301);
+            this.addVisitor_panel.Location = new System.Drawing.Point(5, 389);
             this.addVisitor_panel.Name = "addVisitor_panel";
             this.addVisitor_panel.Size = new System.Drawing.Size(288, 63);
             this.addVisitor_panel.TabIndex = 4;
@@ -168,7 +171,7 @@
             this.Queue_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
             this.Queue_panel.Controls.Add(this.Queue_btn);
             this.Queue_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Queue_panel.Location = new System.Drawing.Point(3, 380);
+            this.Queue_panel.Location = new System.Drawing.Point(5, 468);
             this.Queue_panel.Name = "Queue_panel";
             this.Queue_panel.Size = new System.Drawing.Size(288, 63);
             this.Queue_panel.TabIndex = 4;
@@ -188,9 +191,9 @@
             this.Queue_btn.Image = ((System.Drawing.Image)(resources.GetObject("Queue_btn.Image")));
             this.Queue_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Queue_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.Queue_btn.Location = new System.Drawing.Point(-3, 0);
+            this.Queue_btn.Location = new System.Drawing.Point(0, 0);
             this.Queue_btn.Name = "Queue_btn";
-            this.Queue_btn.Size = new System.Drawing.Size(291, 63);
+            this.Queue_btn.Size = new System.Drawing.Size(288, 63);
             this.Queue_btn.TabIndex = 8;
             this.Queue_btn.Text = "Queue";
             this.Queue_btn.Click += new System.EventHandler(this.Queue_btn_Click);
@@ -198,6 +201,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
+            this.guna2Panel1.Controls.Add(this.guna2Panel2);
             this.guna2Panel1.Controls.Add(this.Logout_btn);
             this.guna2Panel1.Controls.Add(this.logoImage);
             this.guna2Panel1.Controls.Add(this.addVisitor_panel);
@@ -210,6 +214,38 @@
             this.guna2Panel1.Size = new System.Drawing.Size(293, 1033);
             this.guna2Panel1.TabIndex = 7;
             // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
+            this.guna2Panel2.Controls.Add(this.btn_Dept);
+            this.guna2Panel2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Panel2.Location = new System.Drawing.Point(5, 689);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(288, 63);
+            this.guna2Panel2.TabIndex = 8;
+            // 
+            // btn_Dept
+            // 
+            this.btn_Dept.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Dept.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Dept.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Dept.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Dept.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Dept.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
+            this.btn_Dept.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Dept.ForeColor = System.Drawing.Color.White;
+            this.btn_Dept.HoverState.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.btn_Dept.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btn_Dept.Image = ((System.Drawing.Image)(resources.GetObject("btn_Dept.Image")));
+            this.btn_Dept.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_Dept.ImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Dept.Location = new System.Drawing.Point(0, 0);
+            this.btn_Dept.Name = "btn_Dept";
+            this.btn_Dept.Size = new System.Drawing.Size(288, 63);
+            this.btn_Dept.TabIndex = 7;
+            this.btn_Dept.Text = "Add Dept.";
+            this.btn_Dept.Click += new System.EventHandler(this.btn_Dept_Click);
+            // 
             // Logout_btn
             // 
             this.Logout_btn.BorderColor = System.Drawing.Color.Gainsboro;
@@ -219,15 +255,17 @@
             this.Logout_btn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Logout_btn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.Logout_btn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Logout_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Logout_btn.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Logout_btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
+            this.Logout_btn.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Logout_btn.ForeColor = System.Drawing.Color.White;
+            this.Logout_btn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.Logout_btn.Image = ((System.Drawing.Image)(resources.GetObject("Logout_btn.Image")));
             this.Logout_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.Logout_btn.Location = new System.Drawing.Point(66, 958);
+            this.Logout_btn.Location = new System.Drawing.Point(42, 955);
             this.Logout_btn.Name = "Logout_btn";
-            this.Logout_btn.Size = new System.Drawing.Size(149, 51);
+            this.Logout_btn.Size = new System.Drawing.Size(205, 51);
             this.Logout_btn.TabIndex = 8;
+            this.Logout_btn.Text = "Logout";
             this.Logout_btn.Click += new System.EventHandler(this.Logout_btn_Click);
             // 
             // logoImage
@@ -272,6 +310,7 @@
             this.addVisitor_panel.ResumeLayout(false);
             this.Queue_panel.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).EndInit();
             this.ResumeLayout(false);
 
@@ -292,5 +331,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button Logout_btn;
         private Guna.UI2.WinForms.Guna2Panel MainPanel;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Button btn_Dept;
     }
 }

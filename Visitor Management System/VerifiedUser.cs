@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Visitor_Management_System.Methods;
 
 namespace Visitor_Management_System
 {
@@ -22,23 +23,11 @@ namespace Visitor_Management_System
             TimePicker_TimeofVisitVerified.CustomFormat = "hh:mm tt";
             TimePicker_TimeofVisitVerified.Value = DateTime.Now;
         }
-        private void loadForm(object KryptonForm)
-        {
-            if (this.Confirmation_panel.Controls.Count > 0)
-                this.Confirmation_panel.Controls.RemoveAt(0);
-            KryptonForm f = KryptonForm as KryptonForm;
-            f.TopLevel = false;
-            f.Dock = DockStyle.Fill;
-            this.Confirmation_panel.Controls.Add(f);
-            this.Confirmation_panel.Tag = f;
-            f.Show();
-
-        }
 
         private void ConfirmVisitor_btn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Visitor Confirmed!", "Confirmed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            loadForm(new AddVisitor());
+            FormLoader.LoadForm(Confirmation_panel, new AddVisitor());
         }
 
         private void VerifiedUser_Load(object sender, EventArgs e)
@@ -68,7 +57,7 @@ namespace Visitor_Management_System
         {
             if (ShowConfirmationDialog("Are you sure you want to cancel?", "Confirmation"))
             {
-                loadForm(new AddVisitor());
+                FormLoader.LoadForm(Confirmation_panel, new AddVisitor());
             }
             else
             {

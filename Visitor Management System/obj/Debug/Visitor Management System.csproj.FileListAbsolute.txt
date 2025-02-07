@@ -94,3 +94,4 @@ C:\Users\Nancy\Desktop\Visual Studio\Visitor Management System\Visitor Managemen
 C:\Users\Nancy\Desktop\Visual Studio\Visitor Management System\Visitor Management System\bin\Debug\NuGet.Frameworks.dll
 C:\Users\Nancy\Desktop\Visual Studio\Visitor Management System\Visitor Management System\bin\Debug\NuGet.Frameworks.xml
 C:\Users\Nancy\Desktop\Visual Studio\Visitor Management System\Visitor Management System\obj\Debug\Visitor_Management_System.ModalCamera.resources
+C:\Users\Nancy\Desktop\Visual Studio\Visitor Management System\Visitor Management System\obj\Debug\Visitor_Management_System.addDepartment.resources

@@ -200,6 +200,8 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Methods\FormLoader.cs" />
+    <Compile Include="Methods\ReportandHistory.cs" />
     <Compile Include="ModalCamera.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +221,12 @@
     </Compile>
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addDepartment.Designer.cs">
+      <DependentUpon>addDepartment.cs</DependentUpon>
     </Compile>
     <Compile Include="VerifiedUser.cs">
       <SubType>Form</SubType>
@@ -264,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addDepartment.resx">
+      <DependentUpon>addDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VerifiedUser.resx">
       <DependentUpon>VerifiedUser.cs</DependentUpon>

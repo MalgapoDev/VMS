@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_PinCode = new Guna.UI2.WinForms.Guna2TextBox();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.btn_back = new Guna.UI2.WinForms.Guna2Button();
             this.Verified_User_panel.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
@@ -60,11 +61,12 @@
             this.guna2Panel2.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel2.BorderRadius = 12;
             this.guna2Panel2.BorderThickness = 2;
+            this.guna2Panel2.Controls.Add(this.btn_back);
             this.guna2Panel2.Controls.Add(this.confirmPinCode_btn);
             this.guna2Panel2.Controls.Add(this.label2);
             this.guna2Panel2.Controls.Add(this.label1);
             this.guna2Panel2.Controls.Add(this.txt_PinCode);
-            this.guna2Panel2.Location = new System.Drawing.Point(510, 345);
+            this.guna2Panel2.Location = new System.Drawing.Point(551, 345);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(553, 295);
             this.guna2Panel2.TabIndex = 4;
@@ -157,6 +159,26 @@
             this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Content.LongText.Color1 = System.Drawing.Color.White;
             this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Content.LongText.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
+            // btn_back
+            // 
+            this.btn_back.BorderRadius = 5;
+            this.btn_back.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_back.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_back.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_back.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_back.FillColor = System.Drawing.Color.Transparent;
+            this.btn_back.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_back.ForeColor = System.Drawing.Color.White;
+            this.btn_back.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.btn_back.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.btn_back.Image = ((System.Drawing.Image)(resources.GetObject("btn_back.Image")));
+            this.btn_back.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_back.Location = new System.Drawing.Point(27, 13);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(60, 60);
+            this.btn_back.TabIndex = 4;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
             // VerifyUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -190,5 +212,6 @@
         private Guna.UI2.WinForms.Guna2Button confirmPinCode_btn;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Button btn_back;
     }
 }
