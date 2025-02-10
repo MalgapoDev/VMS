@@ -41,7 +41,7 @@ namespace Visitor_Management_System
                 DataTable filteredData = ReportandHistoryMethod.ApplyFilters(
                     table,
                     comboBox_Department.SelectedItem?.ToString(),
-                    currentDateFilter // Use the button-selected date filter
+                    currentDateFilter 
                 );
                 ReportandHistoryMethod.ExportToCSV(saveFileDialog.FileName, filteredData);
             }
@@ -61,7 +61,7 @@ namespace Visitor_Management_System
                 DataTable filteredData = ReportandHistoryMethod.ApplyFilters(
                     table,
                     comboBox_Department.SelectedItem?.ToString(),
-                    currentDateFilter // Use the button-selected date filter
+                    currentDateFilter 
                 );
                 ReportandHistoryMethod.ExportToPDF(saveFileDialog.FileName, filteredData);
             }
