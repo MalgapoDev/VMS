@@ -68,7 +68,7 @@ namespace Visitor_Management_System
 
         private void Logout_btn_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
+            Login form = new Login();
             form.Show();
             Visible = false;
         }

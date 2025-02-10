@@ -15,11 +15,11 @@ using MySqlX.XDevAPI;
 
 namespace Visitor_Management_System
 {
-    public partial class Form1 : KryptonForm
+    public partial class Login : KryptonForm
     {
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
 
-        public Form1()
+        public Login()
         {
             InitializeComponent();
             MakeRoundPictureBox(guna2CirclePictureBox1);
