@@ -201,7 +201,8 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Methods\FormLoader.cs" />
-    <Compile Include="Methods\ReportandHistory.cs" />
+    <Compile Include="Methods\QueueListMethod.cs" />
+    <Compile Include="Methods\ReportandHistoryMethod.cs" />
     <Compile Include="ModalCamera.cs">
       <SubType>Form</SubType>
     </Compile>

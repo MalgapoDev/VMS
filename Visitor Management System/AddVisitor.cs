@@ -198,7 +198,6 @@ namespace Visitor_Management_System
                     cmd.Parameters.AddWithValue("@CardNumber", CardNumber);
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Visitor added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     mysql.Close();
                 }

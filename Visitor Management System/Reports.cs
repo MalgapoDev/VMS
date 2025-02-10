@@ -9,11 +9,11 @@ namespace Visitor_Management_System
     public partial class Reports : KryptonForm
     {
         private DataTable table;
-
+        private string currentDateFilter = "";
         public Reports()
         {
             InitializeComponent();
-            table = ReportandHistory.LoadDataIntoGridView();
+            table = ReportandHistoryMethod.LoadDataIntoGridView();
             dataGrid_ReportTable.DataSource = table;
 
             txt_reportSearch.TextChanged += txt_reportSearch_TextChanged;
@@ -24,8 +24,7 @@ namespace Visitor_Management_System
             string[] departments = { "All", "IT", "Accounting", "Engineering", "HR" };
             comboBox_Department.Items.AddRange(departments);
 
-            string[] filters = { "Daily", "Weekly", "Monthly", "Quarterly", "Yearly" };
-            dateFilter_comboBox.Items.AddRange(filters);
+            dataGrid_ReportTable.AllowUserToAddRows = false;
         }
 
         private void downloadReport_CSV_btn_Click(object sender, EventArgs e)
@@ -39,8 +38,12 @@ namespace Visitor_Management_System
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                DataTable filteredData = ReportandHistory.ApplyFilters(table, comboBox_Department.SelectedItem?.ToString(), dateFilter_comboBox.SelectedItem?.ToString());
-                ReportandHistory.ExportToCSV(saveFileDialog.FileName, filteredData);
+                DataTable filteredData = ReportandHistoryMethod.ApplyFilters(
+                    table,
+                    comboBox_Department.SelectedItem?.ToString(),
+                    currentDateFilter // Use the button-selected date filter
+                );
+                ReportandHistoryMethod.ExportToCSV(saveFileDialog.FileName, filteredData);
             }
         }
 
@@ -55,25 +58,67 @@ namespace Visitor_Management_System
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                DataTable filteredData = ReportandHistory.ApplyFilters(table, comboBox_Department.SelectedItem?.ToString(), dateFilter_comboBox.SelectedItem?.ToString());
-                ReportandHistory.ExportToPDF(saveFileDialog.FileName, filteredData);
+                DataTable filteredData = ReportandHistoryMethod.ApplyFilters(
+                    table,
+                    comboBox_Department.SelectedItem?.ToString(),
+                    currentDateFilter // Use the button-selected date filter
+                );
+                ReportandHistoryMethod.ExportToPDF(saveFileDialog.FileName, filteredData);
             }
         }
 
         private void txt_reportSearch_TextChanged(object sender, EventArgs e)
         {
             string filterText = txt_reportSearch.Text;
-            dataGrid_ReportTable.DataSource = ReportandHistory.FilterByName(table, filterText);
+            dataGrid_ReportTable.DataSource = ReportandHistoryMethod.FilterByName(table, filterText);
         }
 
         private void comboBox_Department_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGrid_ReportTable.DataSource = ReportandHistory.ApplyFilters(table, comboBox_Department.SelectedItem?.ToString(), dateFilter_comboBox.SelectedItem?.ToString());
+            dataGrid_ReportTable.DataSource = ReportandHistoryMethod.ApplyFilters(
+                table,
+                comboBox_Department.SelectedItem?.ToString(),
+                currentDateFilter
+            );
         }
 
-        private void dateFilter_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void btn_Daily_Click(object sender, EventArgs e)
         {
-            dataGrid_ReportTable.DataSource = ReportandHistory.ApplyFilters(table, comboBox_Department.SelectedItem?.ToString(), dateFilter_comboBox.SelectedItem?.ToString());
+            currentDateFilter = "Daily";
+            ApplyCurrentFilters();
+        }
+
+        private void btn_Weekly_Click(object sender, EventArgs e)
+        {
+            currentDateFilter = "Weekly";
+            ApplyCurrentFilters();
+        }
+
+        private void btn_Monthly_Click(object sender, EventArgs e)
+        {
+            currentDateFilter = "Monthly";
+            ApplyCurrentFilters();
+        }
+
+        private void btn_Quarterly_Click(object sender, EventArgs e)
+        {
+            currentDateFilter = "Quarterly";
+            ApplyCurrentFilters();
+        }
+
+        private void btn_Yearly_Click(object sender, EventArgs e)
+        {
+            currentDateFilter = "Yearly";
+            ApplyCurrentFilters();
+        }
+
+        private void ApplyCurrentFilters()
+        {
+            dataGrid_ReportTable.DataSource = ReportandHistoryMethod.ApplyFilters(
+                table,
+                comboBox_Department.SelectedItem?.ToString(),
+                currentDateFilter
+            );
         }
     }
 }

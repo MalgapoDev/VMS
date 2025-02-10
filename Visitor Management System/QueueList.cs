@@ -13,6 +13,7 @@ using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Collections;
+using Visitor_Management_System.Methods;
 
 namespace Visitor_Management_System
 {
@@ -20,11 +21,14 @@ namespace Visitor_Management_System
     {
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
 
+        private QueueListMethod myQueueListMethod;
+
         private DataTable table;
         public QueueList()
         {
             InitializeComponent();
-            InitializeDataTable();
+
+            myQueueListMethod = new QueueListMethod();
 
             txt_Search.TextChanged += txt_Search_TextChanged;
 
@@ -32,34 +36,26 @@ namespace Visitor_Management_System
             timer1.Tick += Timer1_Tick;
             timer1.Start();
         }
-        private void InitializeDataTable()
+        private void LoadVisitor()
         {
-            table = new DataTable();
-            table.Columns.Add("Name", typeof(string));
-            table.Columns.Add("Company", typeof(string));
-            table.Columns.Add("Department", typeof(string));
-            table.Columns.Add("Person to Visit", typeof(string));
-            table.Columns.Add("Purpose", typeof(string));
-            table.Columns.Add("ID Presented", typeof(string));
-            table.Columns.Add("Date", typeof(DateTime));
-            table.Columns.Add("Time - In", typeof(string));
-            table.Columns.Add("Time - Out", typeof(string));
-            table.Columns.Add("ID", typeof(int));
-
-            table.Rows.Add("Rj Canlas", "ABC Company", "IT", "John Doe", "Contract Signing", "Phil ID", DateTime.Now.Date, "11:00 AM", "1:00 PM", 1);
-            table.Rows.Add("Carl James Dolorito", "ABC Company", "HR", "Angeles Tablante", "Meeting", "Passport", new DateTime(2025, 2, 3), "10:00 AM", "2:00 PM", 2);
-            table.Rows.Add("Michael Malgapo", "ABC Company", "IT", "Angeles Tablante", "Discussion", "Passport", new DateTime(2025, 3, 15), "11:00 AM", "1:00 PM", 3);
-            table.Rows.Add("Josh Santuico", "ABC Company", "IT", "Angeles Tablante", "Meetng", "Passport", new DateTime(2025, 1, 23), "11:00 AM", "1:00 PM", 4);
-            table.Rows.Add("Harry Mariano", "ABC Company", "Accounting", "Trixia Meneses", "Budget Checking", "Passport", new DateTime(2025, 4, 20), "11:00 AM", "1:00 PM", 5);
-
+            table = myQueueListMethod.LoadVisitorData();
             dataGrid_QueueTable.DataSource = table;
 
-            DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
-            buttonColumn.Name = "Action";
-            buttonColumn.Text = "Time - Out";
-            buttonColumn.UseColumnTextForButtonValue = true;
+            if (!dataGrid_QueueTable.Columns.Contains("Action"))
+            {
+                DataGridViewImageColumn imageColumn = new DataGridViewImageColumn
+                {
+                    Name = "Action",
+                    HeaderText = " ",
+                    Image = System.Drawing.Image.FromFile(@"C:/Users/Nancy/Desktop/SENTINEL/timeout.png"),
+                    ImageLayout = DataGridViewImageCellLayout.NotSet
+                };
+                dataGrid_QueueTable.Columns.Add(imageColumn);
+            }
+            dataGrid_QueueTable.RowTemplate.Height = 100;
+            dataGrid_QueueTable.Columns["VisitorImage"].Width = 100;
+            dataGrid_QueueTable.AllowUserToAddRows = false;
 
-            dataGrid_QueueTable.Columns.Add(buttonColumn);
         }
 
         private void txt_Search_TextChanged(object sender, EventArgs e)
@@ -97,10 +93,42 @@ namespace Visitor_Management_System
             {
                 MessageBox.Show("No data found for the given username.");
             }
+
+            LoadVisitor();
         }
         private void Timer1_Tick(object sender, EventArgs e)
         {
             lbl_Time.Text = DateTime.Now.ToString("hh:mm tt");
+        }
+
+        private void dataGrid_QueueTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGrid_QueueTable.Columns["Action"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGrid_QueueTable.Rows[e.RowIndex];
+                string visitorId = row.Cells["Id"].Value.ToString();
+                string timeIn = row.Cells["TimeIn"].Value.ToString();
+                string timeOut = DateTime.Now.ToString("hh:mm tt");
+
+                try
+                {
+                    MySqlConnection mysql = new MySqlConnection(mySqlCon);
+                    mysql.Open();
+                    MySqlCommand cmd = new MySqlCommand("UPDATE addvisitor SET TimeOut = @TimeOut WHERE Id = @Id", mysql);
+                    cmd.Parameters.AddWithValue("@TimeOut", timeOut);
+                    cmd.Parameters.AddWithValue("@Id", visitorId);
+                    cmd.ExecuteNonQuery();
+                    mysql.Close();
+
+                    MessageBox.Show("Visitor timed out successfully.");
+
+                    LoadVisitor();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error updating time out: {ex.Message}");
+                }
+            }
         }
     }
 }

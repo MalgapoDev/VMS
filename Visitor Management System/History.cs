@@ -24,7 +24,7 @@ namespace Visitor_Management_System
         public History()
         {
             InitializeComponent();
-            table = ReportandHistory.LoadDataIntoGridView();
+            table = ReportandHistoryMethod.LoadDataIntoGridView();
             dataGrid_HistoryTable.DataSource = table;
 
             txt_historySearch.TextChanged += txt_historySearch_TextChanged;
@@ -42,22 +42,24 @@ namespace Visitor_Management_System
             {
                 dateFilter_comboBox.Items.Add(filter);
             }
+
+            dataGrid_HistoryTable.AllowUserToAddRows = false;
         }
 
         private void txt_historySearch_TextChanged(object sender, EventArgs e)
         {
             string filterText = txt_historySearch.Text;
-            dataGrid_HistoryTable.DataSource = ReportandHistory.FilterByName(table, filterText);
+            dataGrid_HistoryTable.DataSource = ReportandHistoryMethod.FilterByName(table, filterText);
         }
 
         private void comboBox_Department_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGrid_HistoryTable.DataSource = ReportandHistory.ApplyFilters(table, comboBox_Department.SelectedItem?.ToString(), dateFilter_comboBox.SelectedItem?.ToString());
+            dataGrid_HistoryTable.DataSource = ReportandHistoryMethod.ApplyFilters(table, comboBox_Department.SelectedItem?.ToString(), dateFilter_comboBox.SelectedItem?.ToString());
         }
 
         private void dateFilter_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGrid_HistoryTable.DataSource = ReportandHistory.ApplyFilters(table, comboBox_Department.SelectedItem?.ToString(), dateFilter_comboBox.SelectedItem?.ToString());
+            dataGrid_HistoryTable.DataSource = ReportandHistoryMethod.ApplyFilters(table, comboBox_Department.SelectedItem?.ToString(), dateFilter_comboBox.SelectedItem?.ToString());
         }
     }
 }

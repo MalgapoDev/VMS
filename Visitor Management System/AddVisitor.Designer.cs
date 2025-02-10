@@ -811,9 +811,10 @@
             // 
             this.modal_panel.BackColor = System.Drawing.Color.Transparent;
             this.modal_panel.BorderColor = System.Drawing.Color.Transparent;
+            this.modal_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.modal_panel.Location = new System.Drawing.Point(0, 0);
             this.modal_panel.Name = "modal_panel";
-            this.modal_panel.Size = new System.Drawing.Size(508, 416);
+            this.modal_panel.Size = new System.Drawing.Size(1902, 1033);
             this.modal_panel.TabIndex = 42;
             this.modal_panel.Visible = false;
             // 
