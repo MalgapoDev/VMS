@@ -14,6 +14,8 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Collections;
 using Visitor_Management_System.Methods;
+using System.IO;
+using MySqlX.XDevAPI;
 
 namespace Visitor_Management_System
 {
@@ -42,6 +44,18 @@ namespace Visitor_Management_System
             table = myQueueListMethod.LoadVisitorData();
             dataGrid_QueueTable.DataSource = table;
 
+            if (!dataGrid_QueueTable.Columns.Contains("ViewImage"))
+            {
+                DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn
+                {
+                    Name = "ViewImage",
+                    HeaderText = "VisitorImage",
+                    Text = "View",
+                    UseColumnTextForButtonValue = true
+                };
+                dataGrid_QueueTable.Columns.Add(buttonColumn);
+            }
+
             if (!dataGrid_QueueTable.Columns.Contains("Action"))
             {
                 imageColumn = new DataGridViewImageColumn
@@ -54,8 +68,7 @@ namespace Visitor_Management_System
                 dataGrid_QueueTable.Columns.Add(imageColumn);
             }
 
-            dataGrid_QueueTable.RowTemplate.Height = 150;
-            dataGrid_QueueTable.Columns["VisitorImage"].Width = 120;
+            dataGrid_QueueTable.RowTemplate.Height = 30;
             dataGrid_QueueTable.AllowUserToAddRows = false;
 
         }
@@ -105,6 +118,51 @@ namespace Visitor_Management_System
 
         private void dataGrid_QueueTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex == dataGrid_QueueTable.Columns["ViewImage"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGrid_QueueTable.Rows[e.RowIndex];
+                string Id = row.Cells["Id"].Value.ToString();
+
+                try
+                {
+                    MySqlConnection mysql = new MySqlConnection(mySqlCon);
+                    mysql.Open();
+                    MySqlCommand cmd = new MySqlCommand("SELECT VisitorImage FROM addvisitor WHERE Id = @Id", mysql);
+                    cmd.Parameters.AddWithValue("@Id", Id);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                byte[] imageBytes = (byte[])reader["VisitorImage"];
+
+                                using (MemoryStream ms = new MemoryStream(imageBytes))
+                                {
+                                    System.Drawing.Image visitorImage = System.Drawing.Image.FromStream(ms);
+
+                                    ViewVisitorImage view = new ViewVisitorImage(visitorImage);
+                                    view.ShowDialog();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("No image available for this visitor.", "Image Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Visitor not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error retrieving image: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
             if (e.ColumnIndex == dataGrid_QueueTable.Columns["Action"].Index && e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGrid_QueueTable.Rows[e.RowIndex];
@@ -115,7 +173,7 @@ namespace Visitor_Management_System
                 if (timeOutValue != DBNull.Value && !string.IsNullOrWhiteSpace(timeOutValue.ToString()))
                 {
                     MessageBox.Show("Visitor has already timed out.", "Time out Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; 
+                    return;
                 }
 
                 string timeOut = DateTime.Now.ToString("hh:mm tt");
@@ -141,4 +199,5 @@ namespace Visitor_Management_System
             }
         }
     }
+
 }

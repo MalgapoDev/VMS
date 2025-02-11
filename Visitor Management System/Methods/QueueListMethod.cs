@@ -19,7 +19,8 @@ namespace Visitor_Management_System.Methods
             {
                 MySqlConnection mysql = new MySqlConnection(mySqlCon);
                 mysql.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM addvisitor", mysql);
+                MySqlCommand cmd = new MySqlCommand("SELECT Id, FirstName, LastName, MiddleInitial, Suffix, Email, ContactNumber, DateofBirth, " +
+                    "Address, ContactPerson, IDPresented, Room, Department, Date, TimeIn, TimeOut, Purpose, CardNumber FROM addvisitor", mysql);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
 
                 table = new DataTable();
