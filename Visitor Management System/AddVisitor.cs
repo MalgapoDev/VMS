@@ -27,7 +27,6 @@ namespace Visitor_Management_System
     public partial class AddVisitor : KryptonForm
     {
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
-        Dictionary<string, string> departmentRoomMap = new Dictionary<string, string>();
         public AddVisitor()
         {
             InitializeComponent();
@@ -35,6 +34,10 @@ namespace Visitor_Management_System
             TimePicker_TimeofVisit.Format = DateTimePickerFormat.Custom;
             TimePicker_TimeofVisit.CustomFormat = "hh:mm tt";
             TimePicker_TimeofVisit.Value = DateTime.Now;
+
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            timer1.Start();
         }
 
         private void AddVisitor_Load(object sender, EventArgs e)
@@ -54,21 +57,14 @@ namespace Visitor_Management_System
                 MySqlConnection mysql = new MySqlConnection(mySqlCon);
                 mysql.Open();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT DepartmentName, Room FROM department", mysql);
+                MySqlCommand cmd = new MySqlCommand("SELECT DepartmentName FROM department", mysql);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
                     string departmentName = reader["DepartmentName"].ToString();
-                    string room = reader["Room"].ToString();
 
                     comboBox_Department.Items.Add(departmentName);
-
-                    // Store the department and room in a dictionary
-                    if (!departmentRoomMap.ContainsKey(departmentName))
-                    {
-                        departmentRoomMap.Add(departmentName, room);
-                    }
                 }
 
                 mysql.Close();
@@ -116,15 +112,17 @@ namespace Visitor_Management_System
             string ContactNum = txt_Contact.Text.Trim();
             string Address = txt_Address.Text.Trim();
             string ContactPerson = txt_ContactPerson.Text.Trim();
-            string Room = txt_Room.Text.Trim();
+            string Room = comboBox_Room.Text.Trim();
             string Purpose = txt_PurposeofVisit.Text.Trim();
             string CardNumber = txt_CardNumber.Text.Trim();
             string IdPresented = comboBox_ValidID.Text.Trim();
             string department = comboBox_Department.Text.Trim();
 
-            DateTime timeVisit = TimePicker_TimeofVisit.Value;
+            string timeVisit = TimePicker_TimeofVisit.Text;
             DateTime dateofBirth = datePicker_DateofBirth.Value;
             DateTime dateVisit = DatePicker_DateofVisit.Value;
+
+            timeVisit = DateTime.Now.ToString("hh:mm tt");
 
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(middleInitial) || string.IsNullOrEmpty(Email)
                 || string.IsNullOrEmpty(Address) || string.IsNullOrEmpty(ContactPerson) || string.IsNullOrEmpty(Room) || string.IsNullOrEmpty(Purpose) || string.IsNullOrEmpty(CardNumber))
@@ -172,7 +170,7 @@ namespace Visitor_Management_System
                             Image resizedImage = new Bitmap(pictureBox_userProfile.Image, new Size(150, 150));
                             resizedImage.Save(ms, ImageFormat.Jpeg);
 
-                            if (ms.Length < 65536) // Check if the image is within acceptable size
+                            if (ms.Length < 65536) 
                             {
                                 cmd.Parameters.AddWithValue("@VisitorImage", ms.ToArray());
                             }
@@ -223,14 +221,42 @@ namespace Visitor_Management_System
             }
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            TimePicker_TimeofVisit.Text = DateTime.Now.ToString("hh:mm tt");
+        }
+
         private void comboBox_Department_SelectedIndexChanged(object sender, EventArgs e)
         {
+            comboBox_Room.Items.Clear();
             string selectedDepartment = comboBox_Department.SelectedItem.ToString();
 
-            if (departmentRoomMap.ContainsKey(selectedDepartment))
+            try
             {
-                txt_Room.Text = departmentRoomMap[selectedDepartment];
+                MySqlConnection mysql = new MySqlConnection(mySqlCon);
+                mysql.Open();
+
+                MySqlCommand cmd = new MySqlCommand("SELECT RoomNo FROM room " +
+                    "INNER JOIN department ON room.departmentId = department.departmentId " +
+                    "WHERE department.DepartmentName = @departmentName", mysql);
+
+                cmd.Parameters.AddWithValue("@departmentName", selectedDepartment);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string roomNo = reader["RoomNo"].ToString();
+                    comboBox_Room.Items.Add(roomNo);
+                }
+
+                mysql.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

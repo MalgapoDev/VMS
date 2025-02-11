@@ -24,6 +24,7 @@ namespace Visitor_Management_System
         private QueueListMethod myQueueListMethod;
 
         private DataTable table;
+        private DataGridViewImageColumn imageColumn;
         public QueueList()
         {
             InitializeComponent();
@@ -43,17 +44,18 @@ namespace Visitor_Management_System
 
             if (!dataGrid_QueueTable.Columns.Contains("Action"))
             {
-                DataGridViewImageColumn imageColumn = new DataGridViewImageColumn
+                imageColumn = new DataGridViewImageColumn
                 {
                     Name = "Action",
                     HeaderText = " ",
                     Image = System.Drawing.Image.FromFile(@"C:/Users/Nancy/Desktop/SENTINEL/timeout.png"),
-                    ImageLayout = DataGridViewImageCellLayout.NotSet
+                    ImageLayout = DataGridViewImageCellLayout.Zoom
                 };
                 dataGrid_QueueTable.Columns.Add(imageColumn);
             }
-            dataGrid_QueueTable.RowTemplate.Height = 100;
-            dataGrid_QueueTable.Columns["VisitorImage"].Width = 100;
+
+            dataGrid_QueueTable.RowTemplate.Height = 150;
+            dataGrid_QueueTable.Columns["VisitorImage"].Width = 120;
             dataGrid_QueueTable.AllowUserToAddRows = false;
 
         }
@@ -108,6 +110,14 @@ namespace Visitor_Management_System
                 DataGridViewRow row = dataGrid_QueueTable.Rows[e.RowIndex];
                 string visitorId = row.Cells["Id"].Value.ToString();
                 string timeIn = row.Cells["TimeIn"].Value.ToString();
+                object timeOutValue = row.Cells["TimeOut"].Value;
+
+                if (timeOutValue != DBNull.Value && !string.IsNullOrWhiteSpace(timeOutValue.ToString()))
+                {
+                    MessageBox.Show("Visitor has already timed out.", "Time out Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; 
+                }
+
                 string timeOut = DateTime.Now.ToString("hh:mm tt");
 
                 try
@@ -121,7 +131,7 @@ namespace Visitor_Management_System
                     mysql.Close();
 
                     MessageBox.Show("Visitor timed out successfully.");
-
+                    imageColumn.Visible = false;
                     LoadVisitor();
                 }
                 catch (Exception ex)

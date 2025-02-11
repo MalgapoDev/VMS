@@ -95,9 +95,9 @@
             this.History_btn.Image = ((System.Drawing.Image)(resources.GetObject("History_btn.Image")));
             this.History_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.History_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.History_btn.Location = new System.Drawing.Point(0, 0);
+            this.History_btn.Location = new System.Drawing.Point(8, 0);
             this.History_btn.Name = "History_btn";
-            this.History_btn.Size = new System.Drawing.Size(288, 63);
+            this.History_btn.Size = new System.Drawing.Size(280, 63);
             this.History_btn.TabIndex = 8;
             this.History_btn.Text = "History";
             this.History_btn.Click += new System.EventHandler(this.History_btn_Click);
@@ -127,9 +127,9 @@
             this.Reports_btn.Image = ((System.Drawing.Image)(resources.GetObject("Reports_btn.Image")));
             this.Reports_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Reports_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.Reports_btn.Location = new System.Drawing.Point(-2, 0);
+            this.Reports_btn.Location = new System.Drawing.Point(8, 0);
             this.Reports_btn.Name = "Reports_btn";
-            this.Reports_btn.Size = new System.Drawing.Size(290, 63);
+            this.Reports_btn.Size = new System.Drawing.Size(280, 63);
             this.Reports_btn.TabIndex = 8;
             this.Reports_btn.Text = "Reports";
             this.Reports_btn.Click += new System.EventHandler(this.Reports_btn_Click);
@@ -159,9 +159,9 @@
             this.add_Visitor_btn.Image = ((System.Drawing.Image)(resources.GetObject("add_Visitor_btn.Image")));
             this.add_Visitor_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.add_Visitor_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.add_Visitor_btn.Location = new System.Drawing.Point(0, 0);
+            this.add_Visitor_btn.Location = new System.Drawing.Point(8, 0);
             this.add_Visitor_btn.Name = "add_Visitor_btn";
-            this.add_Visitor_btn.Size = new System.Drawing.Size(288, 63);
+            this.add_Visitor_btn.Size = new System.Drawing.Size(280, 63);
             this.add_Visitor_btn.TabIndex = 7;
             this.add_Visitor_btn.Text = "Add Visitor";
             this.add_Visitor_btn.Click += new System.EventHandler(this.add_Visitor_btn_Click);
@@ -191,9 +191,9 @@
             this.Queue_btn.Image = ((System.Drawing.Image)(resources.GetObject("Queue_btn.Image")));
             this.Queue_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Queue_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.Queue_btn.Location = new System.Drawing.Point(0, 0);
+            this.Queue_btn.Location = new System.Drawing.Point(8, 0);
             this.Queue_btn.Name = "Queue_btn";
-            this.Queue_btn.Size = new System.Drawing.Size(288, 63);
+            this.Queue_btn.Size = new System.Drawing.Size(280, 63);
             this.Queue_btn.TabIndex = 8;
             this.Queue_btn.Text = "Queue";
             this.Queue_btn.Click += new System.EventHandler(this.Queue_btn_Click);
@@ -239,9 +239,9 @@
             this.btn_Dept.Image = ((System.Drawing.Image)(resources.GetObject("btn_Dept.Image")));
             this.btn_Dept.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Dept.ImageSize = new System.Drawing.Size(25, 25);
-            this.btn_Dept.Location = new System.Drawing.Point(0, 0);
+            this.btn_Dept.Location = new System.Drawing.Point(8, 0);
             this.btn_Dept.Name = "btn_Dept";
-            this.btn_Dept.Size = new System.Drawing.Size(288, 63);
+            this.btn_Dept.Size = new System.Drawing.Size(280, 63);
             this.btn_Dept.TabIndex = 7;
             this.btn_Dept.Text = "Add Dept.";
             this.btn_Dept.Click += new System.EventHandler(this.btn_Dept_Click);
@@ -270,13 +270,13 @@
             // 
             // logoImage
             // 
-            this.logoImage.BackColor = System.Drawing.Color.White;
+            this.logoImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
             this.logoImage.Cursor = System.Windows.Forms.Cursors.Default;
             this.logoImage.Image = ((System.Drawing.Image)(resources.GetObject("logoImage.Image")));
             this.logoImage.ImageRotate = 0F;
-            this.logoImage.Location = new System.Drawing.Point(23, 33);
+            this.logoImage.Location = new System.Drawing.Point(12, 35);
             this.logoImage.Name = "logoImage";
-            this.logoImage.Size = new System.Drawing.Size(239, 184);
+            this.logoImage.Size = new System.Drawing.Size(270, 200);
             this.logoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoImage.TabIndex = 0;
             this.logoImage.TabStop = false;

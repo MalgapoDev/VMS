@@ -59,7 +59,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(73, 30);
+            this.label1.Location = new System.Drawing.Point(26, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(309, 45);
             this.label1.TabIndex = 0;
@@ -95,7 +95,7 @@
             this.txt_Department.PasswordChar = '\0';
             this.txt_Department.PlaceholderText = "";
             this.txt_Department.SelectedText = "";
-            this.txt_Department.Size = new System.Drawing.Size(400, 37);
+            this.txt_Department.Size = new System.Drawing.Size(308, 37);
             this.txt_Department.TabIndex = 4;
             // 
             // label3
@@ -128,7 +128,7 @@
             this.txt_Room.PasswordChar = '\0';
             this.txt_Room.PlaceholderText = "";
             this.txt_Room.SelectedText = "";
-            this.txt_Room.Size = new System.Drawing.Size(400, 37);
+            this.txt_Room.Size = new System.Drawing.Size(308, 37);
             this.txt_Room.TabIndex = 6;
             // 
             // btn_Add
@@ -147,7 +147,7 @@
             this.btn_Add.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.btn_Add.Image = ((System.Drawing.Image)(resources.GetObject("btn_Add.Image")));
             this.btn_Add.ImageSize = new System.Drawing.Size(40, 40);
-            this.btn_Add.Location = new System.Drawing.Point(190, 310);
+            this.btn_Add.Location = new System.Drawing.Point(141, 292);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(60, 60);
             this.btn_Add.TabIndex = 7;
@@ -159,7 +159,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(455, 415);
+            this.ClientSize = new System.Drawing.Size(365, 415);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.txt_Room);
             this.Controls.Add(this.label3);

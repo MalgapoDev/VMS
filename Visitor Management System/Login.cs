@@ -22,15 +22,6 @@ namespace Visitor_Management_System
         public Login()
         {
             InitializeComponent();
-            MakeRoundPictureBox(guna2CirclePictureBox1);
-
-        }
-        private void MakeRoundPictureBox(PictureBox pictureBox)
-        {
-            GraphicsPath path = new GraphicsPath();
-            path.AddEllipse(0, 0, pictureBox.Width, pictureBox.Height);
-
-            pictureBox.Region = new Region(path);
         }
 
         private void gunaLogin_btn_Click(object sender, EventArgs e)

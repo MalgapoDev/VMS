@@ -92,6 +92,7 @@
             this.dataGrid_QueueTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid_QueueTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGrid_QueueTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGrid_QueueTable.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGrid_QueueTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -113,11 +114,12 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGrid_QueueTable.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGrid_QueueTable.EnableHeadersVisualStyles = true;
             this.dataGrid_QueueTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGrid_QueueTable.Location = new System.Drawing.Point(17, 356);
             this.dataGrid_QueueTable.Name = "dataGrid_QueueTable";
             this.dataGrid_QueueTable.RowHeadersVisible = false;
-            this.dataGrid_QueueTable.RowHeadersWidth = 51;
+            this.dataGrid_QueueTable.RowHeadersWidth = 100;
             this.dataGrid_QueueTable.RowTemplate.Height = 24;
             this.dataGrid_QueueTable.Size = new System.Drawing.Size(1108, 663);
             this.dataGrid_QueueTable.TabIndex = 1;

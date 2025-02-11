@@ -34,30 +34,50 @@ namespace Visitor_Management_System
 
             if (string.IsNullOrEmpty(DepartmentName) || string.IsNullOrEmpty(Room))
             {
-                MessageBox.Show("Input to add Department or Room.");
+                MessageBox.Show("Please input both Department and Room.");
             }
-            else 
+            else
             {
-                MySqlConnection mysql = new MySqlConnection(mySqlCon);
-                try
+                using (MySqlConnection mysql = new MySqlConnection(mySqlCon))
                 {
-                    mysql.Open();
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO department (DepartmentName, Room) VALUES (@DepartmentName, @Room)", mysql);
-                    cmd.Parameters.AddWithValue("@DepartmentName", DepartmentName);
-                    cmd.Parameters.AddWithValue("@Room", Room);
-                    cmd.ExecuteNonQuery();
+                    try
+                    {
+                        mysql.Open();
 
-                    MessageBox.Show("Department added.");
-                    txt_Department.Clear();
-                    txt_Room.Clear();
-                    
-                    mysql.Close();
+                        // Check if the department already exists
+                        MySqlCommand checkDeptCmd = new MySqlCommand("SELECT departmentId FROM department WHERE DepartmentName = @DepartmentName", mysql);
+                        checkDeptCmd.Parameters.AddWithValue("@DepartmentName", DepartmentName);
 
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Add Department Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        object result = checkDeptCmd.ExecuteScalar();
+                        long departmentId;
+
+                        if (result != null)
+                        {
+                            // Department exists, get its ID
+                            departmentId = Convert.ToInt64(result);
+                        }
+                        else
+                        {
+                            MySqlCommand insertDeptCmd = new MySqlCommand("INSERT INTO department (DepartmentName) VALUES (@DepartmentName)", mysql);
+                            insertDeptCmd.Parameters.AddWithValue("@DepartmentName", DepartmentName);
+                            insertDeptCmd.ExecuteNonQuery();
+                            departmentId = insertDeptCmd.LastInsertedId;
+                        }
+
+                        // Add the room associated with the department
+                        MySqlCommand insertRoomCmd = new MySqlCommand("INSERT INTO room (RoomNo, departmentId) VALUES (@RoomNo, @departmentId)", mysql);
+                        insertRoomCmd.Parameters.AddWithValue("@RoomNo", Room);
+                        insertRoomCmd.Parameters.AddWithValue("@departmentId", departmentId);
+                        insertRoomCmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Department and Room added successfully.");
+                        txt_Room.Clear(); 
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Add Department Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddVisitor));
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.comboBox_Room = new Guna.UI2.WinForms.Guna2ComboBox();
             this.comboBox_ValidID = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.comboBox_Department = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.txt_Room = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_ContactPerson = new Guna.UI2.WinForms.Guna2TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -75,7 +75,7 @@
             this.EnterVisitCode_btn = new Guna.UI2.WinForms.Guna2Button();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.AddVisitorScreen_panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.kryptonPalette2 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_userProfile)).BeginInit();
             this.AddVisitorScreen_panel.SuspendLayout();
@@ -98,6 +98,7 @@
             this.guna2CustomGradientPanel1.BorderColor = System.Drawing.Color.Black;
             this.guna2CustomGradientPanel1.BorderRadius = 20;
             this.guna2CustomGradientPanel1.BorderThickness = 1;
+            this.guna2CustomGradientPanel1.Controls.Add(this.comboBox_Room);
             this.guna2CustomGradientPanel1.Controls.Add(this.comboBox_ValidID);
             this.guna2CustomGradientPanel1.Controls.Add(this.label23);
             this.guna2CustomGradientPanel1.Controls.Add(this.label22);
@@ -115,7 +116,6 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.label16);
             this.guna2CustomGradientPanel1.Controls.Add(this.comboBox_Department);
             this.guna2CustomGradientPanel1.Controls.Add(this.label15);
-            this.guna2CustomGradientPanel1.Controls.Add(this.txt_Room);
             this.guna2CustomGradientPanel1.Controls.Add(this.txt_ContactPerson);
             this.guna2CustomGradientPanel1.Controls.Add(this.label14);
             this.guna2CustomGradientPanel1.Controls.Add(this.label12);
@@ -141,6 +141,23 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1685, 837);
             this.guna2CustomGradientPanel1.TabIndex = 3;
+            // 
+            // comboBox_Room
+            // 
+            this.comboBox_Room.BackColor = System.Drawing.Color.Transparent;
+            this.comboBox_Room.BorderColor = System.Drawing.Color.Black;
+            this.comboBox_Room.BorderRadius = 10;
+            this.comboBox_Room.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBox_Room.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Room.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBox_Room.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBox_Room.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_Room.ForeColor = System.Drawing.Color.Black;
+            this.comboBox_Room.ItemHeight = 30;
+            this.comboBox_Room.Location = new System.Drawing.Point(629, 416);
+            this.comboBox_Room.Name = "comboBox_Room";
+            this.comboBox_Room.Size = new System.Drawing.Size(150, 36);
+            this.comboBox_Room.TabIndex = 43;
             // 
             // comboBox_ValidID
             // 
@@ -337,6 +354,7 @@
             this.TimePicker_TimeofVisit.BorderRadius = 10;
             this.TimePicker_TimeofVisit.BorderThickness = 1;
             this.TimePicker_TimeofVisit.Checked = true;
+            this.TimePicker_TimeofVisit.Enabled = false;
             this.TimePicker_TimeofVisit.FillColor = System.Drawing.Color.White;
             this.TimePicker_TimeofVisit.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.TimePicker_TimeofVisit.Format = System.Windows.Forms.DateTimePickerFormat.Time;
@@ -356,6 +374,7 @@
             this.DatePicker_DateofVisit.BorderRadius = 10;
             this.DatePicker_DateofVisit.BorderThickness = 1;
             this.DatePicker_DateofVisit.Checked = true;
+            this.DatePicker_DateofVisit.Enabled = false;
             this.DatePicker_DateofVisit.FillColor = System.Drawing.Color.White;
             this.DatePicker_DateofVisit.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.DatePicker_DateofVisit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -428,29 +447,6 @@
             this.label15.Size = new System.Drawing.Size(91, 22);
             this.label15.TabIndex = 23;
             this.label15.Text = "Department";
-            // 
-            // txt_Room
-            // 
-            this.txt_Room.BorderColor = System.Drawing.Color.Black;
-            this.txt_Room.BorderRadius = 10;
-            this.txt_Room.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_Room.DefaultText = "";
-            this.txt_Room.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_Room.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_Room.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_Room.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_Room.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Room.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Room.ForeColor = System.Drawing.Color.Black;
-            this.txt_Room.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Room.Location = new System.Drawing.Point(627, 416);
-            this.txt_Room.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txt_Room.Name = "txt_Room";
-            this.txt_Room.PasswordChar = '\0';
-            this.txt_Room.PlaceholderText = "";
-            this.txt_Room.SelectedText = "";
-            this.txt_Room.Size = new System.Drawing.Size(120, 37);
-            this.txt_Room.TabIndex = 21;
             // 
             // txt_ContactPerson
             // 
@@ -687,7 +683,7 @@
             this.comboBox_suffix.ItemHeight = 30;
             this.comboBox_suffix.Location = new System.Drawing.Point(722, 106);
             this.comboBox_suffix.Name = "comboBox_suffix";
-            this.comboBox_suffix.Size = new System.Drawing.Size(97, 36);
+            this.comboBox_suffix.Size = new System.Drawing.Size(150, 36);
             this.comboBox_suffix.TabIndex = 7;
             // 
             // txt_middleInital
@@ -864,21 +860,9 @@
             this.AddVisitorScreen_panel.Size = new System.Drawing.Size(1902, 1033);
             this.AddVisitorScreen_panel.TabIndex = 43;
             // 
-            // kryptonPalette2
+            // timer1
             // 
-            this.kryptonPalette2.FormStyles.FormCommon.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
-            this.kryptonPalette2.FormStyles.FormCommon.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
-            this.kryptonPalette2.HeaderStyles.HeaderCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonPalette2.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.Color1 = System.Drawing.Color.White;
-            this.kryptonPalette2.HeaderStyles.HeaderCommon.StateCommon.Content.LongText.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonPalette2.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonPalette2.HeaderStyles.HeaderCommon.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonPalette2.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
-            this.kryptonPalette2.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(37)))), ((int)(((byte)(63)))));
-            this.kryptonPalette2.HeaderStyles.HeaderForm.StateCommon.Content.LongText.Color1 = System.Drawing.Color.White;
-            this.kryptonPalette2.HeaderStyles.HeaderForm.StateCommon.Content.LongText.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // AddVisitor
             // 
@@ -928,7 +912,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2TextBox txt_Address;
-        private Guna.UI2.WinForms.Guna2TextBox txt_Room;
         private Guna.UI2.WinForms.Guna2TextBox txt_ContactPerson;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
@@ -954,6 +937,7 @@
         private System.Windows.Forms.Label label23;
         private Guna.UI2.WinForms.Guna2ComboBox comboBox_ValidID;
         private Guna.UI2.WinForms.Guna2Button btn_startCamera;
-        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette2;
+        private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2ComboBox comboBox_Room;
     }
 }
