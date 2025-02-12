@@ -84,7 +84,8 @@ namespace Visitor_Management_System
             else
             {
                 DataView filteredView = new DataView(table);
-                filteredView.RowFilter = $"Name LIKE '%{filterText}%'";
+                filteredView.RowFilter = $"FirstName LIKE '%{filterText}%' OR LastName LIKE '%{filterText}%' " +
+                    $"' OR Email LIKE '%{filterText}%' ' OR ContactPerson LIKE '%{filterText}%'";
                 dataGrid_QueueTable.DataSource = filteredView;
             }
         }

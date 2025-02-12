@@ -36,14 +36,14 @@
             this.add_Visitor_btn = new Guna.UI2.WinForms.Guna2Button();
             this.Queue_btn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_Dept = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Logout_btn = new Guna.UI2.WinForms.Guna2Button();
             this.MainPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -162,6 +162,18 @@
             this.guna2Panel1.Size = new System.Drawing.Size(293, 1033);
             this.guna2Panel1.TabIndex = 7;
             // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.Controls.Add(this.add_Visitor_btn);
+            this.guna2Panel2.Controls.Add(this.btn_Dept);
+            this.guna2Panel2.Controls.Add(this.Queue_btn);
+            this.guna2Panel2.Controls.Add(this.History_btn);
+            this.guna2Panel2.Controls.Add(this.Reports_btn);
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 321);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(293, 488);
+            this.guna2Panel2.TabIndex = 9;
+            // 
             // btn_Dept
             // 
             this.btn_Dept.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -183,6 +195,17 @@
             this.btn_Dept.TabIndex = 7;
             this.btn_Dept.Text = "Add Dept.";
             this.btn_Dept.Click += new System.EventHandler(this.btn_Dept_Click);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(26, 35);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(243, 187);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 0;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // Logout_btn
             // 
@@ -214,29 +237,6 @@
             this.MainPanel.Size = new System.Drawing.Size(990, 1033);
             this.MainPanel.TabIndex = 8;
             // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(26, 35);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(243, 187);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Controls.Add(this.add_Visitor_btn);
-            this.guna2Panel2.Controls.Add(this.btn_Dept);
-            this.guna2Panel2.Controls.Add(this.Queue_btn);
-            this.guna2Panel2.Controls.Add(this.History_btn);
-            this.guna2Panel2.Controls.Add(this.Reports_btn);
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 321);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(293, 488);
-            this.guna2Panel2.TabIndex = 9;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -254,8 +254,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.guna2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

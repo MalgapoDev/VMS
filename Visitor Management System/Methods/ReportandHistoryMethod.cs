@@ -17,25 +17,6 @@ namespace Visitor_Management_System.Methods
     {
         public static DataTable LoadDataIntoGridView()
         {
-            /*DataTable table = new DataTable();
-            table.Columns.Add("Name", typeof(string));
-            table.Columns.Add("Company", typeof(string));
-            table.Columns.Add("Department", typeof(string));
-            table.Columns.Add("Person to Visit", typeof(string));
-            table.Columns.Add("Purpose", typeof(string));
-            table.Columns.Add("ID Presented", typeof(string));
-            table.Columns.Add("Date", typeof(DateTime));
-            table.Columns.Add("Time - In", typeof(string));
-            table.Columns.Add("Time - Out", typeof(string));
-            table.Columns.Add("ID", typeof(int));
-
-            table.Rows.Add("Rj Canlas", "ABC Company", "IT", "John Doe", "Contract Signing", "Phil ID", DateTime.Now.Date, "11:00 AM", "1:00 PM", 1);
-            table.Rows.Add("Carl James Dolorito", "ABC Company", "HR", "Angeles Tablante", "Meeting", "Passport", new DateTime(2025, 2, 14), "10:00 AM", "2:00 PM", 2);
-            table.Rows.Add("Michael Malgapo", "ABC Company", "IT", "Angeles Tablante", "Discussion", "Passport", new DateTime(2025, 2, 15), "11:00 AM", "1:00 PM", 3);
-            table.Rows.Add("Josh Santuico", "ABC Company", "IT", "Angeles Tablante", "Meetng", "Passport", new DateTime(2025, 1, 23), "11:00 AM", "1:00 PM", 4);
-            table.Rows.Add("Harry Mariano", "ABC Company", "Accounting", "Trixia Meneses", "Budget Checking", "Passport", new DateTime(2025, 4, 20), "11:00 AM", "1:00 PM", 5);
-
-            return table;*/
 
             DataTable table = new DataTable();
             string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
@@ -117,7 +98,9 @@ namespace Visitor_Management_System.Methods
 
             DataView dv = new DataView(table)
             {
-                RowFilter = $"Name LIKE '%{nameFilter}%'"
+                RowFilter = $"FirstName LIKE '%{nameFilter}%' OR LastName LIKE '%{nameFilter}%'" +
+                $" OR Email LIKE '%{nameFilter}%' OR ContactPerson LIKE '%{nameFilter}%'"
+
             };
 
             return dv.ToTable();
