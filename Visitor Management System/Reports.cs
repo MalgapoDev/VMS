@@ -1,13 +1,16 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
 using Visitor_Management_System.Methods;
+using MySql.Data.MySqlClient;
 
 namespace Visitor_Management_System
 {
     public partial class Reports : KryptonForm
     {
+        private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
         private DataTable table;
         private string currentDateFilter = "";
         public Reports()
@@ -25,6 +28,8 @@ namespace Visitor_Management_System
             comboBox_Department.Items.AddRange(departments);
 
             dataGrid_ReportTable.AllowUserToAddRows = false;
+
+            loadReport();
         }
 
         private void downloadReport_CSV_btn_Click(object sender, EventArgs e)
@@ -119,6 +124,72 @@ namespace Visitor_Management_System
                 comboBox_Department.SelectedItem?.ToString(),
                 currentDateFilter
             );
+        }
+
+        private void loadReport()
+        {
+            if (!dataGrid_ReportTable.Columns.Contains("ViewImage"))
+            {
+                DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn
+                {
+                    Name = "ViewImage",
+                    HeaderText = "VisitorImage",
+                    Text = "View",
+                    UseColumnTextForButtonValue = true
+                };
+                dataGrid_ReportTable.Columns.Add(buttonColumn);
+
+                dataGrid_ReportTable.RowTemplate.Height = 30;
+                dataGrid_ReportTable.AllowUserToAddRows = false;
+            }
+        }
+
+        private void dataGrid_ReportTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGrid_ReportTable.Columns["ViewImage"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGrid_ReportTable.Rows[e.RowIndex];
+                string Id = row.Cells["Id"].Value.ToString();
+
+                try
+                {
+                    MySqlConnection mysql = new MySqlConnection(mySqlCon);
+                    mysql.Open();
+                    MySqlCommand cmd = new MySqlCommand("SELECT VisitorImage FROM addvisitor WHERE Id = @Id", mysql);
+                    cmd.Parameters.AddWithValue("@Id", Id);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                byte[] imageBytes = (byte[])reader["VisitorImage"];
+
+                                using (MemoryStream ms = new MemoryStream(imageBytes))
+                                {
+                                    System.Drawing.Image visitorImage = System.Drawing.Image.FromStream(ms);
+
+                                    ViewVisitorImage view = new ViewVisitorImage(visitorImage);
+                                    view.ShowDialog();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("No image available for this visitor.", "Image Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Visitor not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error retrieving image: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

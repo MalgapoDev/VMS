@@ -70,6 +70,7 @@
             this.dataGrid_ReportTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGrid_ReportTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGrid_ReportTable.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGrid_ReportTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -94,7 +95,7 @@
             this.dataGrid_ReportTable.Location = new System.Drawing.Point(200, 356);
             this.dataGrid_ReportTable.Name = "dataGrid_ReportTable";
             this.dataGrid_ReportTable.RowHeadersVisible = false;
-            this.dataGrid_ReportTable.RowHeadersWidth = 51;
+            this.dataGrid_ReportTable.RowHeadersWidth = 100;
             this.dataGrid_ReportTable.RowTemplate.Height = 24;
             this.dataGrid_ReportTable.Size = new System.Drawing.Size(1025, 286);
             this.dataGrid_ReportTable.TabIndex = 4;
@@ -119,6 +120,7 @@
             this.dataGrid_ReportTable.ThemeStyle.RowsStyle.Height = 24;
             this.dataGrid_ReportTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGrid_ReportTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dataGrid_ReportTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_ReportTable_CellContentClick);
             // 
             // txt_reportSearch
             // 
