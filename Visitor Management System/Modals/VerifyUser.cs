@@ -1,62 +1,104 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using Visitor_Management_System.Methods;
 
 namespace Visitor_Management_System
 {
     public partial class VerifyUser : KryptonForm
     {
-        private const int IdLength = 6;
-        private const int ValidPin = 123456;
+        private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
+
+        private const int IdLength = 9;
+
         public VerifyUser()
         {
             InitializeComponent();
             txt_PinCode.MaxLength = IdLength;
-            txt_PinCode.KeyPress += txt_PinCode_KeyPress;
         }
 
         private void confirmPinCode_btn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_PinCode.Text))
+            string pinCode = txt_PinCode.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(pinCode))
             {
                 MessageBox.Show("Please enter a pin code.");
-                FormLoader.LoadForm(Verified_User_panel, new AddVisitor());
                 return;
             }
 
-            int pincode;
-            if (!int.TryParse(txt_PinCode.Text, out pincode))
+            DataTable visitorData = GetVisitorData(pinCode);
+
+            if (visitorData.Rows.Count > 0)
             {
-                MessageBox.Show("Invalid pin code. Please enter numbers only.");
-                txt_PinCode.Clear();
-                return;
-            }
-            if (pincode != IdLength && pincode != ValidPin)
-            {
-                MessageBox.Show("Pin code must match.");
-                txt_PinCode.Clear();
+                DataRow row = visitorData.Rows[0];
+
+                // Extract details from database row
+                string firstname = row["FirstName"].ToString();
+                string lastname = row["LastName"].ToString();
+                string MI = row["MiddleInitial"].ToString();
+                string suffix = row["Suffix"].ToString();
+                string email = row["Email"].ToString();
+                string contactnum = row["ContactNumber"].ToString();
+                string dateofbirth = row["DateofBirth"].ToString();
+                string address = row["Address"].ToString();
+                string contactperson = row["ContactPerson"].ToString();
+                string idpresented = row["IDPresented"].ToString();
+                string room = row["Room"].ToString();
+                string department = row["Department"].ToString();
+                string date = row["Date"].ToString();
+                string purpose = row["Purpose"].ToString();
+                byte[] visitorImage = (byte[])row["VisitorImage"];
+
+                Image image = null;
+                if (visitorImage != null && visitorImage.Length > 0)
+                {
+                    using (MemoryStream ms = new MemoryStream(visitorImage))
+                    {
+                        image = Image.FromStream(ms);
+                    }
+                }
+
+
+                FormLoader.LoadForm(Verified_User_panel, new VerifiedUser(firstname, lastname, MI, suffix, email, contactnum, dateofbirth,
+                    address, contactperson, idpresented, room, department, date, purpose, image));
             }
             else
             {
-                FormLoader.LoadForm(Verified_User_panel, new VerifiedUser());
+                MessageBox.Show("Pin code does not match any records.");
+                txt_PinCode.Clear();
             }
-
         }
 
-        private void txt_PinCode_KeyPress(object sender, KeyPressEventArgs e)
+        private DataTable GetVisitorData(string pincode)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            string query = "SELECT * FROM addvisitor WHERE VisitCode = @VisitCode";
+            DataTable visitorData = new DataTable();
+
+            using (MySqlConnection conn = new MySqlConnection(mySqlCon))
             {
-                e.Handled = true;
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@VisitCode", pincode);
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(visitorData);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Database error: " + ex.Message);
+                }
             }
+            return visitorData;
         }
 
         private void btn_back_Click(object sender, EventArgs e)

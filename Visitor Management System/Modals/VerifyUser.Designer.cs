@@ -164,7 +164,6 @@
             this.txt_PinCode.SelectedText = "";
             this.txt_PinCode.Size = new System.Drawing.Size(449, 38);
             this.txt_PinCode.TabIndex = 1;
-            this.txt_PinCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_PinCode_KeyPress);
             // 
             // kryptonPalette1
             // 
