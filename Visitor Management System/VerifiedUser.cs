@@ -97,6 +97,7 @@ namespace Visitor_Management_System
             txt_DepartmentVerified.Enabled = false;
             txt_RoomVerified.Enabled = false;
             txt_PurposeofVisitVerified.Enabled = false;
+            TimePicker_TimeofVisitVerified.Enabled = false;
 
             datePicker_DateofBirthVerified.Format = DateTimePickerFormat.Custom;
             datePicker_DateofBirthVerified.CustomFormat = "MM/dd/yyyy";
