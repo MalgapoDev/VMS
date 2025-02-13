@@ -76,29 +76,27 @@ namespace Visitor_Management_System
 
         private DataTable GetVisitorData(string pincode)
         {
-            string query = "SELECT * FROM addvisitor WHERE VisitCode = @VisitCode";
+
             DataTable visitorData = new DataTable();
 
-            using (MySqlConnection conn = new MySqlConnection(mySqlCon))
+            try
             {
-                try
-                {
-                    conn.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@VisitCode", pincode);
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                        {
-                            adapter.Fill(visitorData);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Database error: " + ex.Message);
-                }
+                MySqlConnection mysql = new MySqlConnection(mySqlCon);
+                mysql.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM addvisitor WHERE VisitCode = @VisitCode", mysql);
+                cmd.Parameters.AddWithValue("@VisitCode", pincode);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+
+                adapter.Fill(visitorData);
+                mysql.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database error: " + ex.Message);
+            }
+
             return visitorData;
+
         }
 
         private void btn_back_Click(object sender, EventArgs e)

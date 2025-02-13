@@ -52,8 +52,33 @@ namespace Visitor_Management_System
 
         private void ConfirmVisitor_btn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Visitor Confirmed!", "Confirmed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            FormLoader.LoadForm(Confirmation_panel, new AddVisitor());
+            try 
+            {
+                MySqlConnection mysql = new MySqlConnection(mySqlCon);
+                mysql.Open();
+                MySqlCommand cmd = new MySqlCommand("UPDATE addvisitor SET TimeIn = @TimeIn, CardNumber = @CardNumber WHERE Email = @Email", mysql);
+                cmd.Parameters.AddWithValue("@TimeIn", TimePicker_TimeofVisitVerified.Text);
+                cmd.Parameters.AddWithValue("@CardNumber", txt_CardNumberVerified.Text);
+                cmd.Parameters.AddWithValue("@Email", txt_EmailVerified.Text);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Visitor's TimeIn and CardNumber updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No matching visitor found.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                FormLoader.LoadForm(Confirmation_panel, new AddVisitor());
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void VerifiedUser_Load(object sender, EventArgs e)
