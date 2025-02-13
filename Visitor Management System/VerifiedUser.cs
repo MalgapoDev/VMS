@@ -115,7 +115,7 @@ namespace Visitor_Management_System
         {
             if (ShowConfirmationDialog("Are you sure you want to cancel?", "Confirmation"))
             {
-                FormLoader.LoadForm(Confirmation_panel, new QueueList());
+                FormLoader.LoadForm(Confirmation_panel, new AddVisitor());
             }
             else
             {
