@@ -10,6 +10,7 @@ namespace Visitor_Management_System
 {
     public partial class Reports : KryptonForm
     {
+        // Connection string for MySQL database
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
         private DataTable table;
         private string currentDateFilter = "";
@@ -22,6 +23,7 @@ namespace Visitor_Management_System
             txt_reportSearch.TextChanged += txt_reportSearch_TextChanged;
         }
 
+        // Event triggered when the form loads
         private void Reports_Load(object sender, EventArgs e)
         {
             string[] departments = { "All", "IT", "Accounting", "Engineering", "HR" };
@@ -32,6 +34,7 @@ namespace Visitor_Management_System
             loadReport();
         }
 
+        // Event triggered when the "Download CSV" button is clicked
         private void downloadReport_CSV_btn_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -52,6 +55,7 @@ namespace Visitor_Management_System
             }
         }
 
+        // Event triggered when the "Download PDF" button is clicked
         private void downloadReport_PDF_btn_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -72,12 +76,14 @@ namespace Visitor_Management_System
             }
         }
 
+        // Event triggered when the user types in the search box
         private void txt_reportSearch_TextChanged(object sender, EventArgs e)
         {
             string filterText = txt_reportSearch.Text;
             dataGrid_ReportTable.DataSource = ReportandHistoryMethod.FilterByName(table, filterText);
         }
 
+        // Event triggered when the department dropdown selection changes
         private void comboBox_Department_SelectedIndexChanged(object sender, EventArgs e)
         {
             dataGrid_ReportTable.DataSource = ReportandHistoryMethod.ApplyFilters(
@@ -87,6 +93,7 @@ namespace Visitor_Management_System
             );
         }
 
+        // Event handlers for date filter buttons
         private void btn_Daily_Click(object sender, EventArgs e)
         {
             currentDateFilter = "Daily";
@@ -117,6 +124,7 @@ namespace Visitor_Management_System
             ApplyCurrentFilters();
         }
 
+        // Applies the current filters (department + date) to the DataGridView
         private void ApplyCurrentFilters()
         {
             dataGrid_ReportTable.DataSource = ReportandHistoryMethod.ApplyFilters(
@@ -126,6 +134,7 @@ namespace Visitor_Management_System
             );
         }
 
+        // Configures the report DataGridView, adding a button column if necessary
         private void loadReport()
         {
             if (!dataGrid_ReportTable.Columns.Contains("ViewImage"))
@@ -144,6 +153,7 @@ namespace Visitor_Management_System
             }
         }
 
+        // Event triggered when a button inside the DataGridView is clicked
         private void dataGrid_ReportTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dataGrid_ReportTable.Columns["ViewImage"].Index && e.RowIndex >= 0)

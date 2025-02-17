@@ -21,6 +21,7 @@ namespace Visitor_Management_System
 {
     public partial class QueueList : KryptonForm
     {
+        // Connection string for MySQL database
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
 
         private QueueListMethod myQueueListMethod;
@@ -35,15 +36,19 @@ namespace Visitor_Management_System
 
             txt_Search.TextChanged += txt_Search_TextChanged;
 
+            // set time interval for the display of the current time.
             timer1.Interval = 1000;
             timer1.Tick += Timer1_Tick;
             timer1.Start();
         }
+
+        // Method to load visitor data into the DataGridView
         private void LoadVisitor()
         {
             table = myQueueListMethod.LoadVisitorData();
             dataGrid_QueueTable.DataSource = table;
 
+            // Add "ViewImage" button column if it doesn't exist
             if (!dataGrid_QueueTable.Columns.Contains("ViewImage"))
             {
                 DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn
@@ -56,6 +61,7 @@ namespace Visitor_Management_System
                 dataGrid_QueueTable.Columns.Add(buttonColumn);
             }
 
+            // Add "Action" image column if it doesn't exist
             if (!dataGrid_QueueTable.Columns.Contains("Action"))
             {
                 imageColumn = new DataGridViewImageColumn
@@ -73,6 +79,7 @@ namespace Visitor_Management_System
 
         }
 
+        // Event handler for search text box - filters the visitor data based on user input
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
             string filterText = txt_Search.Text;
@@ -90,6 +97,7 @@ namespace Visitor_Management_System
             }
         }
 
+        // Event handler for form load - initializes visitor data and loads user details
         private void QueueList_Load(object sender, EventArgs e)
         {
             lbl_Date.Text = DateTime.Now.ToString("MMMM dd, yyyy");
@@ -112,11 +120,14 @@ namespace Visitor_Management_System
 
             LoadVisitor();
         }
+
+        // Event handler for timer tick - updates the time label dynamically
         private void Timer1_Tick(object sender, EventArgs e)
         {
             lbl_Time.Text = DateTime.Now.ToString("hh:mm tt");
         }
 
+        // Event handler for DataGridView cell click - handles "ViewImage" and "Action" clicks
         private void dataGrid_QueueTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dataGrid_QueueTable.Columns["ViewImage"].Index && e.RowIndex >= 0)

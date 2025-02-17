@@ -17,6 +17,7 @@ namespace Visitor_Management_System
 {
     public partial class Login : KryptonForm
     {
+        // Connection string for MySQL database
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
 
         public Login()
@@ -24,6 +25,7 @@ namespace Visitor_Management_System
             InitializeComponent();
         }
 
+        // login function for receptionist. The value for receptionist is only sample data.
         private void gunaLogin_btn_Click(object sender, EventArgs e)
         {
             MySqlConnection mysql = new MySqlConnection(mySqlCon);
@@ -58,6 +60,7 @@ namespace Visitor_Management_System
 
         }
 
+        // exit the application by clicking the close button in the window form.
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();

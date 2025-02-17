@@ -18,12 +18,14 @@ namespace Visitor_Management_System
 {
     public partial class VerifiedUser : KryptonForm
     {
+        // Connection string for MySQL database
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
         public VerifiedUser(string firstname, string lastname, string MI, string suffix, string email, string contactnum, string dateofbirth,
                     string address, string contactperson, string idpresented, string room, string department, string date, string purpose, Image visitorImage)
         {
             InitializeComponent();
 
+            // display the call values of the visitor after entering visit code.
             txt_firstnameVerified.Text = firstname;
             txt_lastnameVerified.Text = lastname;
             txt_middleInitalVerified.Text = MI;
@@ -50,6 +52,7 @@ namespace Visitor_Management_System
             TimePicker_TimeofVisitVerified.Value = DateTime.Now;
         }
 
+        // add to queue by clicking confirm visitor button.
         private void ConfirmVisitor_btn_Click(object sender, EventArgs e)
         {
             try 
@@ -81,6 +84,7 @@ namespace Visitor_Management_System
 
         }
 
+        // disable the ui except card number. Also call the format for date time picker.
         private void VerifiedUser_Load(object sender, EventArgs e)
         {
             txt_firstnameVerified.Enabled = false;
@@ -112,6 +116,7 @@ namespace Visitor_Management_System
             TimePicker_TimeofVisitVerified.ShowUpDown = true;
         }
 
+        // Cancel button.
         private void Cancel_btn_Click(object sender, EventArgs e)
         {
             if (ShowConfirmationDialog("Are you sure you want to cancel?", "Confirmation"))

@@ -19,7 +19,11 @@ namespace Visitor_Management_System.Methods
         {
 
             DataTable table = new DataTable();
+
+            // Connection string for MySQL database
             string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
+
+            // Call the same value for report and history module
             try
             {
 
@@ -41,6 +45,7 @@ namespace Visitor_Management_System.Methods
 
         }
 
+        // function for filter by department and date status
         public static DataTable ApplyFilters(DataTable table, string departmentFilter, string dateFilter)
         {
             string filterExpression = "";
@@ -92,6 +97,7 @@ namespace Visitor_Management_System.Methods
             return filteredTable;
         }
 
+        // filter function by name, email, or contact person
         public static DataTable FilterByName(DataTable table, string nameFilter)
         {
             if (string.IsNullOrEmpty(nameFilter)) return table;
@@ -106,6 +112,7 @@ namespace Visitor_Management_System.Methods
             return dv.ToTable();
         }
 
+        // function for exporting excel file.
         public static void ExportToCSV(string filePath, DataTable table)
         {
             using (StreamWriter writer = new StreamWriter(filePath))
@@ -127,6 +134,7 @@ namespace Visitor_Management_System.Methods
             MessageBox.Show("Data exported to CSV successfully.");
         }
 
+        // function for exporting pdf file.
         public static void ExportToPDF(string filePath, DataTable table)
         {
             Document pdfDoc = new Document(PageSize.LEGAL.Rotate(), 30f,30f,30f,30f); // 36f = 0.5 inch margins

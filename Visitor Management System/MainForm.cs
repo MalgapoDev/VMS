@@ -13,6 +13,7 @@ using Visitor_Management_System.Methods;
 
 namespace Visitor_Management_System
 {
+    // Main form with the side navigation. This form call the other window form to display inside the main form.
     public partial class MainForm : KryptonForm
     {
         private KryptonForm cachedAddVisitorForm = null;

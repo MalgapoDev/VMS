@@ -18,14 +18,11 @@ namespace Visitor_Management_System
         {
             InitializeComponent();
         }
+
+        // display the form addvisitor to the Main form by clicking okay button.
         private void Okay_btn_Click(object sender, EventArgs e)
         {
             FormLoader.LoadForm(userPrompt_panel, new AddVisitor());
-        }
-
-        private void AddUserPrompt_Load(object sender, EventArgs e)
-        {
-            
         }
     }
 }

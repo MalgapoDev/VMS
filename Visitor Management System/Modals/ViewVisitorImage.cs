@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace Visitor_Management_System
 {
+    // window form that shows the visitor image by clicking button view 
     public partial class ViewVisitorImage : KryptonForm
     {
         private Image _visitorImage;
@@ -20,6 +21,7 @@ namespace Visitor_Management_System
             _visitorImage = image;
         }
 
+        // call and display the image of the visitor.
         private void ViewVisitorImage_Load(object sender, EventArgs e)
         {
             if (_visitorImage != null)

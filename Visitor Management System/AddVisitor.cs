@@ -26,11 +26,13 @@ namespace Visitor_Management_System
 
     public partial class AddVisitor : KryptonForm
     {
+        // Connection string for MySQL database
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
         public AddVisitor()
         {
             InitializeComponent();
 
+            // format for selecting time
             TimePicker_TimeofVisit.Format = DateTimePickerFormat.Custom;
             TimePicker_TimeofVisit.CustomFormat = "hh:mm tt";
             TimePicker_TimeofVisit.Value = DateTime.Now;
@@ -40,6 +42,7 @@ namespace Visitor_Management_System
             timer1.Start();
         }
 
+        //fetch the selectable value for the other widgets like combo box.
         private void AddVisitor_Load(object sender, EventArgs e)
         {
             TimePicker_TimeofVisit.Format = DateTimePickerFormat.Time;
@@ -96,12 +99,14 @@ namespace Visitor_Management_System
 
         }
 
+        // call verify user window form for entering visit code.
         private void EnterVisitCode_btn_Click(object sender, EventArgs e)
         {
             FormLoader.LoadForm(modal_panel, new VerifyUser());
             modal_panel.Visible = true;
         }
 
+        //function for adding visitor manually
         private void AddVisitor_btn_Click(object sender, EventArgs e)
         {
 
@@ -217,6 +222,7 @@ namespace Visitor_Management_System
             }
         }
 
+        // button to open the camera for capturing visitor facial.
         private void btn_startCamera_Click(object sender, EventArgs e)
         {
             using (ModalCamera captureForm = new ModalCamera())
@@ -228,11 +234,13 @@ namespace Visitor_Management_System
             }
         }
 
+        // set timer for time picker as real time.
         private void timer1_Tick(object sender, EventArgs e)
         {
             TimePicker_TimeofVisit.Text = DateTime.Now.ToString("hh:mm tt");
         }
 
+        // fetch room number based on the selected department in the combo box department.
         private void comboBox_Department_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox_Room.Items.Clear();

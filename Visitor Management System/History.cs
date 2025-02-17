@@ -24,12 +24,15 @@ namespace Visitor_Management_System
         public History()
         {
             InitializeComponent();
+            
+            // call the function from ReportandHistoryMethod class. 
             table = ReportandHistoryMethod.LoadDataIntoGridView();
             dataGrid_HistoryTable.DataSource = table;
 
             txt_historySearch.TextChanged += txt_historySearch_TextChanged;
         }
 
+        // display value for combo box department and date filter, and for the data grid view
         private void History_Load(object sender, EventArgs e)
         {
             string[] departments = { "All", "IT", "Accounting", "Engineering", "HR" }; // types of department
@@ -46,17 +49,20 @@ namespace Visitor_Management_System
             dataGrid_HistoryTable.AllowUserToAddRows = false;
         }
 
+        // function for text search.
         private void txt_historySearch_TextChanged(object sender, EventArgs e)
         {
             string filterText = txt_historySearch.Text;
             dataGrid_HistoryTable.DataSource = ReportandHistoryMethod.FilterByName(table, filterText);
         }
 
+        // function for combo box to filter.
         private void comboBox_Department_SelectedIndexChanged(object sender, EventArgs e)
         {
             dataGrid_HistoryTable.DataSource = ReportandHistoryMethod.ApplyFilters(table, comboBox_Department.SelectedItem?.ToString(), dateFilter_comboBox.SelectedItem?.ToString());
         }
 
+        // function for combo box to filter.
         private void dateFilter_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             dataGrid_HistoryTable.DataSource = ReportandHistoryMethod.ApplyFilters(table, comboBox_Department.SelectedItem?.ToString(), dateFilter_comboBox.SelectedItem?.ToString());

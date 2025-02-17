@@ -11,8 +11,10 @@ namespace Visitor_Management_System
 {
     public partial class VerifyUser : KryptonForm
     {
+        // Connection string for MySQL database
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
 
+        // initial limit for Visit code.
         private const int IdLength = 9;
 
         public VerifyUser()
@@ -21,6 +23,7 @@ namespace Visitor_Management_System
             txt_PinCode.MaxLength = IdLength;
         }
 
+        // Event handler for confirming the PIN code input
         private void confirmPinCode_btn_Click(object sender, EventArgs e)
         {
             string pinCode = txt_PinCode.Text.Trim();
@@ -31,6 +34,7 @@ namespace Visitor_Management_System
                 return;
             }
 
+            // Fetch visitor details from the database based on the entered PIN code
             DataTable visitorData = GetVisitorData(pinCode);
 
             if (visitorData.Rows.Count > 0)
@@ -74,11 +78,13 @@ namespace Visitor_Management_System
             }
         }
 
+        // Method to fetch visitor details from the database using the provided PIN code
         private DataTable GetVisitorData(string pincode)
         {
 
             DataTable visitorData = new DataTable();
 
+            // Prepare the SQL query to retrieve visitor details
             try
             {
                 MySqlConnection mysql = new MySqlConnection(mySqlCon);
@@ -99,6 +105,7 @@ namespace Visitor_Management_System
 
         }
 
+        // Event handler for the "Back" button click
         private void btn_back_Click(object sender, EventArgs e)
         {
             FormLoader.LoadForm(Verified_User_panel, new AddVisitor());

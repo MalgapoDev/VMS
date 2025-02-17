@@ -14,11 +14,13 @@ namespace Visitor_Management_System
 {
     public partial class addDepartment : KryptonForm
     {
+        // Connection string for MySQL database
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
         public addDepartment()
         {
             InitializeComponent();
 
+            // start position for the add department form
             this.StartPosition = FormStartPosition.Manual;
             int screenWidth = Screen.PrimaryScreen.Bounds.Width;
             int formWidth = this.Width;
@@ -27,6 +29,7 @@ namespace Visitor_Management_System
             this.Location = new Point(x, y);
         }
 
+        // add department and room number by clicking add button
         private void btn_Add_Click(object sender, EventArgs e)
         {
             string DepartmentName = txt_Department.Text.Trim();

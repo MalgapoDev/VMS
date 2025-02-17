@@ -11,10 +11,13 @@ namespace Visitor_Management_System.Methods
 {
     internal class QueueListMethod
     {
+        // Connection string for MySQL database
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
         private DataTable table;
-        public DataTable LoadVisitorData()
+
+        public DataTable LoadVisitorData() // datatable method to call the table and display from data grid view.
         {
+            
             try
             {
                 MySqlConnection mysql = new MySqlConnection(mySqlCon);

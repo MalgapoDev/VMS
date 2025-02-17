@@ -10,6 +10,7 @@ namespace Visitor_Management_System.Methods
 {
     internal class FormLoader
     {
+        
         public static void LoadForm(Control parentControl, KryptonForm form)
         {
             if (parentControl.Controls.Count > 0)
