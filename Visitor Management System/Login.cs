@@ -57,5 +57,10 @@ namespace Visitor_Management_System
             }
 
         }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

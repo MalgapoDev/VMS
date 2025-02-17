@@ -60,7 +60,7 @@ namespace Visitor_Management_System
         {
             Login form = new Login();
             form.Show();
-            Visible = false;
+            this.Close();
         }
 
         private void btn_Dept_Click(object sender, EventArgs e)
