@@ -471,6 +471,7 @@
             this.txt_ContactPerson.SelectedText = "";
             this.txt_ContactPerson.Size = new System.Drawing.Size(291, 37);
             this.txt_ContactPerson.TabIndex = 20;
+            this.txt_ContactPerson.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_firstname_KeyPress);
             // 
             // label14
             // 
@@ -708,6 +709,7 @@
             this.txt_middleInital.SelectedText = "";
             this.txt_middleInital.Size = new System.Drawing.Size(86, 37);
             this.txt_middleInital.TabIndex = 6;
+            this.txt_middleInital.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_firstname_KeyPress);
             // 
             // label5
             // 
@@ -753,6 +755,7 @@
             this.txt_lastname.SelectedText = "";
             this.txt_lastname.Size = new System.Drawing.Size(291, 37);
             this.txt_lastname.TabIndex = 3;
+            this.txt_lastname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_firstname_KeyPress);
             // 
             // label3
             // 
@@ -791,6 +794,7 @@
             this.txt_firstname.SelectedText = "";
             this.txt_firstname.Size = new System.Drawing.Size(291, 37);
             this.txt_firstname.TabIndex = 1;
+            this.txt_firstname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_firstname_KeyPress);
             // 
             // label2
             // 

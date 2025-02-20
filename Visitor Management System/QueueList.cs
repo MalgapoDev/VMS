@@ -91,8 +91,8 @@ namespace Visitor_Management_System
             else
             {
                 DataView filteredView = new DataView(table);
-                filteredView.RowFilter = $"FirstName LIKE '%{filterText}%' OR LastName LIKE '%{filterText}%' " +
-                    $"' OR Email LIKE '%{filterText}%' ' OR ContactPerson LIKE '%{filterText}%'";
+                filteredView.RowFilter = $"visitorName LIKE '%{filterText}%'" +
+                $" OR Email LIKE '%{filterText}%' OR ContactPerson LIKE '%{filterText}%'";
                 dataGrid_QueueTable.DataSource = filteredView;
             }
         }
@@ -134,14 +134,14 @@ namespace Visitor_Management_System
             if (e.ColumnIndex == dataGrid_QueueTable.Columns["ViewImage"].Index && e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGrid_QueueTable.Rows[e.RowIndex];
-                string Id = row.Cells["Id"].Value.ToString();
+                string Id = row.Cells["visitorID"].Value.ToString();
 
                 try
                 {
                     MySqlConnection mysql = new MySqlConnection(mySqlCon);
                     mysql.Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT VisitorImage FROM addvisitor WHERE Id = @Id", mysql);
-                    cmd.Parameters.AddWithValue("@Id", Id);
+                    MySqlCommand cmd = new MySqlCommand("SELECT VisitorImage FROM visitors WHERE visitorID = @visitorID", mysql);
+                    cmd.Parameters.AddWithValue("@visitorID", Id);
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -179,7 +179,7 @@ namespace Visitor_Management_System
             if (e.ColumnIndex == dataGrid_QueueTable.Columns["Action"].Index && e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGrid_QueueTable.Rows[e.RowIndex];
-                string visitorId = row.Cells["Id"].Value.ToString();
+                string visitorId = row.Cells["visitorID"].Value.ToString();
                 string timeIn = row.Cells["TimeIn"].Value.ToString();
                 object timeOutValue = row.Cells["TimeOut"].Value;
 
@@ -195,14 +195,14 @@ namespace Visitor_Management_System
                 {
                     MySqlConnection mysql = new MySqlConnection(mySqlCon);
                     mysql.Open();
-                    MySqlCommand cmd = new MySqlCommand("UPDATE addvisitor SET TimeOut = @TimeOut WHERE Id = @Id", mysql);
+                    MySqlCommand cmd = new MySqlCommand("UPDATE visit_information SET TimeOut = @TimeOut WHERE visitorID = @visitorID   ", mysql);
                     cmd.Parameters.AddWithValue("@TimeOut", timeOut);
-                    cmd.Parameters.AddWithValue("@Id", visitorId);
+                    cmd.Parameters.AddWithValue("@visitorID", visitorId);
                     cmd.ExecuteNonQuery();
                     mysql.Close();
 
                     MessageBox.Show("Visitor timed out successfully.");
-                    imageColumn.Visible = false;
+
                     LoadVisitor();
                 }
                 catch (Exception ex)

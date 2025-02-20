@@ -22,8 +22,9 @@ namespace Visitor_Management_System.Methods
             {
                 MySqlConnection mysql = new MySqlConnection(mySqlCon);
                 mysql.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT Id, FirstName, LastName, MiddleInitial, Suffix, Email, ContactNumber, DateofBirth, " +
-                    "Address, ContactPerson, IDPresented, Room, Department, Date, TimeIn, TimeOut, Purpose, CardNumber FROM addvisitor", mysql);
+                MySqlCommand cmd = new MySqlCommand("SELECT v.visitorID, CONCAT(v.FirstName ,' ' , v.LastName) AS visitorName, v.Email, v.ContactNumber, i.ContactPerson," +
+                    " i.IDPresented, i.Room, i.Department, i.DateOfVisit, i.TimeIn, i.TimeOut, i.PurposeOfVisit," +
+                    " i.CardNumber FROM visitors v JOIN visit_information i ON v.visitorID = i.visitorID WHERE i.TimeOut IS NULL", mysql);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
 
                 table = new DataTable();

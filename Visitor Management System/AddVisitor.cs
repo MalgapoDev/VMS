@@ -36,6 +36,7 @@ namespace Visitor_Management_System
             TimePicker_TimeofVisit.Format = DateTimePickerFormat.Custom;
             TimePicker_TimeofVisit.CustomFormat = "hh:mm tt";
             TimePicker_TimeofVisit.Value = DateTime.Now;
+            txt_Contact.MaxLength = 12;
 
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
@@ -142,9 +143,9 @@ namespace Visitor_Management_System
                     MessageBox.Show("Check the credentials.", "Add Visitor Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-                else if (!Email.Contains("@gmail.com"))
+                else if (!Email.Contains("@"))
                 {
-                    MessageBox.Show("Enter the gmail account of the visitor.", "Add Visitor Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Enter the email account of the visitor.", "Add Visitor Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 else if (ContactNum.Any(char.IsLetter))
@@ -158,8 +159,8 @@ namespace Visitor_Management_System
                         MySqlConnection mysql = new MySqlConnection(mySqlCon);
 
                         mysql.Open();
-                        MySqlCommand cmd = new MySqlCommand("INSERT INTO addvisitor (FirstName, LastName, MiddleInitial, Suffix, Email, ContactNumber, DateofBirth, Address, VisitorImage, ContactPerson, IDPresented, Room, Department, Date, TimeIn, Purpose, CardNumber) " +
-                        "VALUES (@FirstName, @LastName, @MiddleInitial, @Suffix, @Email, @ContactNumber, @DateofBirth, @Address, @VisitorImage, @ContactPerson, @IDPresented, @Room, @Department, @Date, @TimeIn, @Purpose, @CardNumber)", mysql);
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO visitors (FirstName, LastName, MiddleInitial, Suffix, Email, ContactNumber, DateofBirth, Address, VisitorImage) " +
+                        "VALUES (@FirstName, @LastName, @MiddleInitial, @Suffix, @Email, @ContactNumber, @DateofBirth, @Address, @VisitorImage)", mysql);
 
                         cmd.Parameters.AddWithValue("@FirstName", firstName);
                         cmd.Parameters.AddWithValue("@LastName", lastName);
@@ -192,14 +193,22 @@ namespace Visitor_Management_System
                         {
                             cmd.Parameters.AddWithValue("@VisitorImage", DBNull.Value);
                         }
+                        cmd.ExecuteNonQuery();
 
+                        cmd = new MySqlCommand("SELECT LAST_INSERT_ID();", mysql);
+                        int visitorID = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        cmd = new MySqlCommand("INSERT INTO visit_information (visitorID, ContactPerson, IDPresented, Room, Department, DateOfVisit, TimeIn, PurposeOfVisit, CardNumber )" +
+                            "VALUES (@visitorID, @ContactPerson, @IDPresented, @Room, @Department, @DateOfVisit, @TimeIn, @PurposeOfVisit, @CardNumber)", mysql);
+
+                        cmd.Parameters.AddWithValue("@visitorID", visitorID);
                         cmd.Parameters.AddWithValue("@ContactPerson", ContactPerson);
                         cmd.Parameters.AddWithValue("@IDPresented", IdPresented);
                         cmd.Parameters.AddWithValue("@Room", Room);
                         cmd.Parameters.AddWithValue("@Department", department);
-                        cmd.Parameters.AddWithValue("@Date", dateVisit);
+                        cmd.Parameters.AddWithValue("@DateOfVisit", dateVisit);
                         cmd.Parameters.AddWithValue("@TimeIn", timeVisit);
-                        cmd.Parameters.AddWithValue("@Purpose", Purpose);
+                        cmd.Parameters.AddWithValue("@PurposeOfVisit", Purpose);
                         cmd.Parameters.AddWithValue("@CardNumber", CardNumber);
 
                         cmd.ExecuteNonQuery();
@@ -272,6 +281,15 @@ namespace Visitor_Management_System
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void txt_firstname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                // Cancel the input
+                e.Handled = true;
+            }
         }
     }
 }
