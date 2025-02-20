@@ -1,5 +1,6 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,9 +60,9 @@ namespace Visitor_Management_System
 
         private void Logout_btn_Click(object sender, EventArgs e)
         {
+            this.Close();
             Login form = new Login();
             form.Show();
-            this.Close();
         }
 
         private void btn_Dept_Click(object sender, EventArgs e)

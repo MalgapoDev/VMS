@@ -101,6 +101,7 @@ namespace Visitor_Management_System
         private void QueueList_Load(object sender, EventArgs e)
         {
             lbl_Date.Text = DateTime.Now.ToString("MMMM dd, yyyy");
+            lbl_Time.Text = DateTime.Now.ToString("hh:mm:ss tt");
 
             MySqlConnection mysql = new MySqlConnection(mySqlCon);
 
@@ -124,7 +125,7 @@ namespace Visitor_Management_System
         // Event handler for timer tick - updates the time label dynamically
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            lbl_Time.Text = DateTime.Now.ToString("hh:mm tt");
+            lbl_Time.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
 
         // Event handler for DataGridView cell click - handles "ViewImage" and "Action" clicks
