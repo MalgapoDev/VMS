@@ -15,7 +15,7 @@ namespace Visitor_Management_System
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
 
         // initial limit for Visit code.
-        private const int IdLength = 9;
+        private const int IdLength = 10;
 
         public VerifyUser()
         {
@@ -42,20 +42,21 @@ namespace Visitor_Management_System
                 DataRow row = visitorData.Rows[0];
 
                 // Extract details from database row
+                string visitorID = row["visitorID"].ToString();
                 string firstname = row["FirstName"].ToString();
                 string lastname = row["LastName"].ToString();
                 string MI = row["MiddleInitial"].ToString();
                 string suffix = row["Suffix"].ToString();
                 string email = row["Email"].ToString();
                 string contactnum = row["ContactNumber"].ToString();
-                string dateofbirth = row["DateofBirth"].ToString();
+                string dateofbirth = row["DateOfBirth"].ToString();
                 string address = row["Address"].ToString();
                 string contactperson = row["ContactPerson"].ToString();
                 string idpresented = row["IDPresented"].ToString();
                 string room = row["Room"].ToString();
                 string department = row["Department"].ToString();
-                string date = row["Date"].ToString();
-                string purpose = row["Purpose"].ToString();
+                string date = row["DateOfVisit"].ToString();
+                string purpose = row["PurposeOfVisit"].ToString();
                 byte[] visitorImage = (byte[])row["VisitorImage"];
 
                 Image image = null;
@@ -69,7 +70,7 @@ namespace Visitor_Management_System
 
 
                 FormLoader.LoadForm(Verified_User_panel, new VerifiedUser(firstname, lastname, MI, suffix, email, contactnum, dateofbirth,
-                    address, contactperson, idpresented, room, department, date, purpose, image));
+                    address, contactperson, idpresented, room, department, date, purpose, image, visitorID));
             }
             else
             {
@@ -89,8 +90,10 @@ namespace Visitor_Management_System
             {
                 MySqlConnection mysql = new MySqlConnection(mySqlCon);
                 mysql.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM addvisitor WHERE VisitCode = @VisitCode", mysql);
-                cmd.Parameters.AddWithValue("@VisitCode", pincode);
+                MySqlCommand cmd = new MySqlCommand("SELECT v.visitorID, v.FirstName, v.LastName, v.MiddleInitial, v.Suffix, v.Email, v.ContactNumber, v.DateOfBirth, " +
+                    "v.Address, v.VisitorImage, i.ContactPerson, i.IDPresented, i.Room, i.Department, i.DateOfVisit, i.TimeIn, i.TimeOut, i.PurposeOfVisit, " +
+                    "i.CardNumber FROM visitors v JOIN visit_information i ON v.visitorID = i.visitorID WHERE i.VisitCode = @i.VisitCode", mysql);
+                cmd.Parameters.AddWithValue("@i.VisitCode", pincode);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
 
                 adapter.Fill(visitorData);

@@ -18,12 +18,16 @@ namespace Visitor_Management_System
 {
     public partial class VerifiedUser : KryptonForm
     {
+        private string visitorID;
         // Connection string for MySQL database
         private string mySqlCon = "server=127.0.0.1; user=root; database=vms_database; password=";
         public VerifiedUser(string firstname, string lastname, string MI, string suffix, string email, string contactnum, string dateofbirth,
-                    string address, string contactperson, string idpresented, string room, string department, string date, string purpose, Image visitorImage)
+                    string address, string contactperson, string idpresented, string room, 
+                    string department, string date, string purpose, Image visitorImage, string visitorID)
         {
             InitializeComponent();
+
+            this.visitorID = visitorID;
 
             // display the call values of the visitor after entering visit code.
             txt_firstnameVerified.Text = firstname;
@@ -59,10 +63,10 @@ namespace Visitor_Management_System
             {
                 MySqlConnection mysql = new MySqlConnection(mySqlCon);
                 mysql.Open();
-                MySqlCommand cmd = new MySqlCommand("UPDATE addvisitor SET TimeIn = @TimeIn, CardNumber = @CardNumber WHERE Email = @Email", mysql);
+                MySqlCommand cmd = new MySqlCommand("UPDATE visit_information SET TimeIn = @TimeIn, CardNumber = @CardNumber WHERE visitorID = @visitorID", mysql);
                 cmd.Parameters.AddWithValue("@TimeIn", TimePicker_TimeofVisitVerified.Text);
                 cmd.Parameters.AddWithValue("@CardNumber", txt_CardNumberVerified.Text);
-                cmd.Parameters.AddWithValue("@Email", txt_EmailVerified.Text);
+                cmd.Parameters.AddWithValue("@visitorID", visitorID);
 
                 int rowsAffected = cmd.ExecuteNonQuery();
 
