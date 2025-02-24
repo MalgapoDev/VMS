@@ -44,6 +44,12 @@ namespace Visitor_Management_System
                 return;
             }
 
+            if (videoSource != null && videoSource.IsRunning)
+            {
+                videoSource.SignalToStop();
+                videoSource.WaitForStop();
+                videoSource.NewFrame -= VideoCaptureDevice_NewFrame;
+            }
             // Ask receptionist for the confirmation of the visitor capture image
             DialogResult result = MessageBox.Show("Are you sure about this image?", "Confirm Capture",
                                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question);

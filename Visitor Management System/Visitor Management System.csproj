@@ -203,10 +203,10 @@
     <Compile Include="Methods\FormLoader.cs" />
     <Compile Include="Methods\QueueListMethod.cs" />
     <Compile Include="Methods\ReportandHistoryMethod.cs" />
-    <Compile Include="ModalCamera.cs">
+    <Compile Include="Modals\ModalCamera.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModalCamera.Designer.cs">
+    <Compile Include="Modals\ModalCamera.Designer.cs">
       <DependentUpon>ModalCamera.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -262,7 +262,7 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModalCamera.resx">
+    <EmbeddedResource Include="Modals\ModalCamera.resx">
       <DependentUpon>ModalCamera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
