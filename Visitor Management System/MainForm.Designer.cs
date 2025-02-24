@@ -244,7 +244,7 @@
             this.ClientSize = new System.Drawing.Size(1283, 1033);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.guna2Panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Palette = this.kryptonPalette1;
