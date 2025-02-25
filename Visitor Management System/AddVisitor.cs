@@ -18,6 +18,7 @@ using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 using System.Drawing.Imaging;
 using Visitor_Management_System.Methods;
+using System.Text.RegularExpressions;
 
 
 
@@ -124,6 +125,8 @@ namespace Visitor_Management_System
             string IdPresented = comboBox_ValidID.Text.Trim();
             string department = comboBox_Department.Text.Trim();
 
+            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
             string timeVisit = TimePicker_TimeofVisit.Text;
             DateTime dateofBirth = datePicker_DateofBirth.Value;
             DateTime dateVisit = DatePicker_DateofVisit.Value;
@@ -135,7 +138,8 @@ namespace Visitor_Management_System
                 if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(middleInitial) || string.IsNullOrEmpty(Email)
                 || string.IsNullOrEmpty(Address) || string.IsNullOrEmpty(ContactPerson) || string.IsNullOrEmpty(Room) || string.IsNullOrEmpty(Purpose) || string.IsNullOrEmpty(CardNumber))
                 {
-                    MessageBox.Show("Please fill the visitor credentials", "Add Visitor Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Empty Credentials. Please fill visitor information.",
+                        "Add Visitor Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 else if (firstName.Any(char.IsDigit) && lastName.Any(char.IsDigit) && ContactPerson.Any(char.IsDigit) && middleInitial.Any(char.IsDigit))
@@ -143,7 +147,7 @@ namespace Visitor_Management_System
                     MessageBox.Show("Check the credentials.", "Add Visitor Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-                else if (!Email.Contains("@"))
+                else if (!Regex.IsMatch(Email, emailPattern))
                 {
                     MessageBox.Show("Enter the email account of the visitor.", "Add Visitor Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }

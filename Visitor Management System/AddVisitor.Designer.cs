@@ -137,7 +137,7 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.label3);
             this.guna2CustomGradientPanel1.Controls.Add(this.txt_firstname);
             this.guna2CustomGradientPanel1.Controls.Add(this.label2);
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(20, 170);
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(19, 170);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1685, 837);
             this.guna2CustomGradientPanel1.TabIndex = 3;
@@ -154,7 +154,7 @@
             this.comboBox_Room.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_Room.ForeColor = System.Drawing.Color.Black;
             this.comboBox_Room.ItemHeight = 30;
-            this.comboBox_Room.Location = new System.Drawing.Point(629, 416);
+            this.comboBox_Room.Location = new System.Drawing.Point(629, 430);
             this.comboBox_Room.Name = "comboBox_Room";
             this.comboBox_Room.Size = new System.Drawing.Size(150, 36);
             this.comboBox_Room.TabIndex = 43;
@@ -171,7 +171,7 @@
             this.comboBox_ValidID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_ValidID.ForeColor = System.Drawing.Color.Black;
             this.comboBox_ValidID.ItemHeight = 30;
-            this.comboBox_ValidID.Location = new System.Drawing.Point(32, 495);
+            this.comboBox_ValidID.Location = new System.Drawing.Point(32, 508);
             this.comboBox_ValidID.Name = "comboBox_ValidID";
             this.comboBox_ValidID.Size = new System.Drawing.Size(289, 36);
             this.comboBox_ValidID.TabIndex = 42;
@@ -184,7 +184,7 @@
             this.label23.AutoSize = true;
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(32, 473);
+            this.label23.Location = new System.Drawing.Point(32, 486);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(64, 22);
             this.label23.TabIndex = 41;
@@ -196,7 +196,7 @@
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label22.Location = new System.Drawing.Point(28, 369);
+            this.label22.Location = new System.Drawing.Point(28, 378);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(896, 16);
             this.label22.TabIndex = 38;
@@ -285,7 +285,7 @@
             this.txt_CardNumber.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.txt_CardNumber.ForeColor = System.Drawing.Color.Black;
             this.txt_CardNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_CardNumber.Location = new System.Drawing.Point(29, 723);
+            this.txt_CardNumber.Location = new System.Drawing.Point(29, 745);
             this.txt_CardNumber.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txt_CardNumber.Name = "txt_CardNumber";
             this.txt_CardNumber.PasswordChar = '\0';
@@ -302,7 +302,7 @@
             this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(27, 695);
+            this.label19.Location = new System.Drawing.Point(27, 717);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(103, 22);
             this.label19.TabIndex = 31;
@@ -323,7 +323,7 @@
             this.txt_PurposeofVisit.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.txt_PurposeofVisit.ForeColor = System.Drawing.Color.Black;
             this.txt_PurposeofVisit.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_PurposeofVisit.Location = new System.Drawing.Point(29, 577);
+            this.txt_PurposeofVisit.Location = new System.Drawing.Point(31, 597);
             this.txt_PurposeofVisit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txt_PurposeofVisit.Multiline = true;
             this.txt_PurposeofVisit.Name = "txt_PurposeofVisit";
@@ -341,7 +341,7 @@
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(27, 549);
+            this.label18.Location = new System.Drawing.Point(29, 569);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(69, 22);
             this.label18.TabIndex = 29;
@@ -360,7 +360,7 @@
             this.TimePicker_TimeofVisit.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.TimePicker_TimeofVisit.HoverState.FillColor = System.Drawing.Color.GhostWhite;
             this.TimePicker_TimeofVisit.IndicateFocus = true;
-            this.TimePicker_TimeofVisit.Location = new System.Drawing.Point(535, 495);
+            this.TimePicker_TimeofVisit.Location = new System.Drawing.Point(535, 508);
             this.TimePicker_TimeofVisit.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.TimePicker_TimeofVisit.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.TimePicker_TimeofVisit.Name = "TimePicker_TimeofVisit";
@@ -380,7 +380,7 @@
             this.DatePicker_DateofVisit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DatePicker_DateofVisit.HoverState.FillColor = System.Drawing.Color.GhostWhite;
             this.DatePicker_DateofVisit.IndicateFocus = true;
-            this.DatePicker_DateofVisit.Location = new System.Drawing.Point(330, 495);
+            this.DatePicker_DateofVisit.Location = new System.Drawing.Point(330, 508);
             this.DatePicker_DateofVisit.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
             this.DatePicker_DateofVisit.MinDate = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
             this.DatePicker_DateofVisit.Name = "DatePicker_DateofVisit";
@@ -396,7 +396,7 @@
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(335, 473);
+            this.label17.Location = new System.Drawing.Point(335, 486);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(42, 22);
             this.label17.TabIndex = 26;
@@ -410,7 +410,7 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(540, 473);
+            this.label16.Location = new System.Drawing.Point(540, 486);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(69, 22);
             this.label16.TabIndex = 25;
@@ -428,7 +428,7 @@
             this.comboBox_Department.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_Department.ForeColor = System.Drawing.Color.Black;
             this.comboBox_Department.ItemHeight = 30;
-            this.comboBox_Department.Location = new System.Drawing.Point(329, 416);
+            this.comboBox_Department.Location = new System.Drawing.Point(329, 430);
             this.comboBox_Department.Name = "comboBox_Department";
             this.comboBox_Department.Size = new System.Drawing.Size(291, 36);
             this.comboBox_Department.TabIndex = 24;
@@ -442,7 +442,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(335, 388);
+            this.label15.Location = new System.Drawing.Point(335, 402);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(91, 22);
             this.label15.TabIndex = 23;
@@ -463,7 +463,7 @@
             this.txt_ContactPerson.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ContactPerson.ForeColor = System.Drawing.Color.Black;
             this.txt_ContactPerson.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_ContactPerson.Location = new System.Drawing.Point(31, 415);
+            this.txt_ContactPerson.Location = new System.Drawing.Point(31, 429);
             this.txt_ContactPerson.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txt_ContactPerson.Name = "txt_ContactPerson";
             this.txt_ContactPerson.PasswordChar = '\0';
@@ -481,7 +481,7 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(625, 388);
+            this.label14.Location = new System.Drawing.Point(625, 402);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(51, 22);
             this.label14.TabIndex = 19;
@@ -495,7 +495,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(27, 387);
+            this.label12.Location = new System.Drawing.Point(27, 401);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(119, 22);
             this.label12.TabIndex = 17;
@@ -506,7 +506,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(25, 336);
+            this.label11.Location = new System.Drawing.Point(25, 345);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(227, 35);
             this.label11.TabIndex = 16;
@@ -520,7 +520,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(326, 238);
+            this.label10.Location = new System.Drawing.Point(326, 259);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(69, 22);
             this.label10.TabIndex = 15;
@@ -534,7 +534,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(27, 238);
+            this.label9.Location = new System.Drawing.Point(27, 259);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 22);
             this.label9.TabIndex = 14;
@@ -555,7 +555,7 @@
             this.txt_Address.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Address.ForeColor = System.Drawing.Color.Black;
             this.txt_Address.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Address.Location = new System.Drawing.Point(330, 267);
+            this.txt_Address.Location = new System.Drawing.Point(330, 288);
             this.txt_Address.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txt_Address.Name = "txt_Address";
             this.txt_Address.PasswordChar = '\0';
@@ -575,7 +575,7 @@
             this.datePicker_DateofBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datePicker_DateofBirth.HoverState.FillColor = System.Drawing.Color.GhostWhite;
             this.datePicker_DateofBirth.IndicateFocus = true;
-            this.datePicker_DateofBirth.Location = new System.Drawing.Point(29, 265);
+            this.datePicker_DateofBirth.Location = new System.Drawing.Point(29, 286);
             this.datePicker_DateofBirth.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
             this.datePicker_DateofBirth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datePicker_DateofBirth.Name = "datePicker_DateofBirth";
@@ -591,7 +591,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(326, 160);
+            this.label8.Location = new System.Drawing.Point(326, 169);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(124, 22);
             this.label8.TabIndex = 11;
@@ -612,7 +612,7 @@
             this.txt_Contact.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Contact.ForeColor = System.Drawing.Color.Black;
             this.txt_Contact.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Contact.Location = new System.Drawing.Point(330, 188);
+            this.txt_Contact.Location = new System.Drawing.Point(330, 197);
             this.txt_Contact.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txt_Contact.Name = "txt_Contact";
             this.txt_Contact.PasswordChar = '\0';
@@ -636,7 +636,7 @@
             this.txt_Email.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Email.ForeColor = System.Drawing.Color.Black;
             this.txt_Email.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_Email.Location = new System.Drawing.Point(31, 188);
+            this.txt_Email.Location = new System.Drawing.Point(31, 197);
             this.txt_Email.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.PasswordChar = '\0';
@@ -653,7 +653,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(27, 160);
+            this.label7.Location = new System.Drawing.Point(27, 169);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 22);
             this.label7.TabIndex = 9;
