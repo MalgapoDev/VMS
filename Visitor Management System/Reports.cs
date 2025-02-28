@@ -159,14 +159,14 @@ namespace Visitor_Management_System
             if (e.ColumnIndex == dataGrid_ReportTable.Columns["ViewImage"].Index && e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGrid_ReportTable.Rows[e.RowIndex];
-                string Id = row.Cells["Id"].Value.ToString();
+                string visitorID = row.Cells["visitorID"].Value.ToString();
 
                 try
                 {
                     MySqlConnection mysql = new MySqlConnection(mySqlCon);
                     mysql.Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT VisitorImage FROM addvisitor WHERE Id = @Id", mysql);
-                    cmd.Parameters.AddWithValue("@Id", Id);
+                    MySqlCommand cmd = new MySqlCommand("SELECT VisitorImage FROM visitors WHERE visitorID = @visitorID", mysql);
+                    cmd.Parameters.AddWithValue("@visitorID", visitorID);
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
