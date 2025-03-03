@@ -65,6 +65,8 @@ namespace Visitor_Management_System
                 MySqlCommand cmd = new MySqlCommand("SELECT DepartmentName FROM department", mysql);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
+                comboBox_Department.Items.Clear();
+
                 while (reader.Read())
                 {
                     string departmentName = reader["DepartmentName"].ToString();
@@ -72,6 +74,7 @@ namespace Visitor_Management_System
                     comboBox_Department.Items.Add(departmentName);
                 }
 
+                reader.Close();
                 mysql.Close();
             }
             catch (Exception ex)
